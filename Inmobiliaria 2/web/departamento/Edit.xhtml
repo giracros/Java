@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="DepartamentoEditDlg" widgetVar="DepartamentoEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditDepartamentoTitle}" closeOnEscape="true">
+
+            <h:form id="DepartamentoEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{departamentoController.selected != null}">
+
+
+                        <h:outputLabel value="#{myBundle.EditDepartamentoLabel_idDepartamento}" for="idDepartamento" />
+                        <h:panelGroup>
+                            <h:outputText id="idDepartamento" value="#{departamentoController.selected.idDepartamento}" />
+                            <p:tooltip for="idDepartamento" value="#{departamentoController.getComponentMessages('idDepartamento', myBundle.EditDepartamentoHelpText_idDepartamento)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditDepartamentoLabel_descripcion}" for="descripcion" />
+                        <h:panelGroup>
+                            <p:inputText id="descripcion" value="#{departamentoController.selected.descripcion}" title="#{myBundle.EditDepartamentoTitle_descripcion}" required="true" requiredMessage="#{myBundle.EditDepartamentoRequiredMessage_descripcion}" size="50" maxlength="50"/>
+                            <p:tooltip for="descripcion" value="#{departamentoController.getComponentMessages('descripcion', myBundle.EditDepartamentoHelpText_descripcion)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{departamentoController.save}" value="#{myBundle.Save}" update="display,:DepartamentoListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,DepartamentoEditDialog);">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{myBundle.Cancel}" onclick="DepartamentoEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

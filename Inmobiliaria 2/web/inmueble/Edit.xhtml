@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="InmuebleEditDlg" widgetVar="InmuebleEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditInmuebleTitle}" closeOnEscape="true">
+
+            <h:form id="InmuebleEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{inmuebleController.selected != null}">
+
+
+                        <h:outputLabel value="#{myBundle.EditInmuebleLabel_codigoInmueble}" for="codigoInmueble" />
+                        <h:panelGroup>
+                            <h:outputText id="codigoInmueble" value="#{inmuebleController.selected.codigoInmueble}" />
+                            <p:tooltip for="codigoInmueble" value="#{inmuebleController.getComponentMessages('codigoInmueble', myBundle.EditInmuebleHelpText_codigoInmueble)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_estrato}" for="estrato" />
+                        <h:panelGroup>
+                            <p:inputText id="estrato" value="#{inmuebleController.selected.estrato}" title="#{myBundle.EditInmuebleTitle_estrato}" required="true" requiredMessage="#{myBundle.EditInmuebleRequiredMessage_estrato}" size="2" maxlength="2"/>
+                            <p:tooltip for="estrato" value="#{inmuebleController.getComponentMessages('estrato', myBundle.EditInmuebleHelpText_estrato)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_area}" for="area" />
+                        <h:panelGroup>
+                            <p:inputText id="area" value="#{inmuebleController.selected.area}" title="#{myBundle.EditInmuebleTitle_area}" required="true" requiredMessage="#{myBundle.EditInmuebleRequiredMessage_area}" size="4" maxlength="4"/>
+                            <p:tooltip for="area" value="#{inmuebleController.getComponentMessages('area', myBundle.EditInmuebleHelpText_area)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_nivelPiso}" for="nivelPiso" />
+                        <h:panelGroup>
+                            <p:inputText id="nivelPiso" value="#{inmuebleController.selected.nivelPiso}" title="#{myBundle.EditInmuebleTitle_nivelPiso}" size="4" maxlength="4"/>
+                            <p:tooltip for="nivelPiso" value="#{inmuebleController.getComponentMessages('nivelPiso', myBundle.EditInmuebleHelpText_nivelPiso)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_alcobas}" for="alcobas" />
+                        <h:panelGroup>
+                            <p:inputText id="alcobas" value="#{inmuebleController.selected.alcobas}" title="#{myBundle.EditInmuebleTitle_alcobas}" required="true" requiredMessage="#{myBundle.EditInmuebleRequiredMessage_alcobas}" size="4" maxlength="4"/>
+                            <p:tooltip for="alcobas" value="#{inmuebleController.getComponentMessages('alcobas', myBundle.EditInmuebleHelpText_alcobas)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_baños}" for="baños" />
+                        <h:panelGroup>
+                            <p:inputText id="baños" value="#{inmuebleController.selected.baños}" title="#{myBundle.EditInmuebleTitle_baños}" required="true" requiredMessage="#{myBundle.EditInmuebleRequiredMessage_baños}" size="4" maxlength="4"/>
+                            <p:tooltip for="baños" value="#{inmuebleController.getComponentMessages('baños', myBundle.EditInmuebleHelpText_baños)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_patios}" for="patios" />
+                        <h:panelGroup>
+                            <p:inputText id="patios" value="#{inmuebleController.selected.patios}" title="#{myBundle.EditInmuebleTitle_patios}" required="true" requiredMessage="#{myBundle.EditInmuebleRequiredMessage_patios}" size="4" maxlength="4"/>
+                            <p:tooltip for="patios" value="#{inmuebleController.getComponentMessages('patios', myBundle.EditInmuebleHelpText_patios)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_espacios}" for="espacios" />
+                        <h:panelGroup>
+                            <p:inputText id="espacios" value="#{inmuebleController.selected.espacios}" title="#{myBundle.EditInmuebleTitle_espacios}" size="45" maxlength="45"/>
+                            <p:tooltip for="espacios" value="#{inmuebleController.getComponentMessages('espacios', myBundle.EditInmuebleHelpText_espacios)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_cocina}" for="cocina" />
+                        <h:panelGroup>
+                            <p:inputText id="cocina" value="#{inmuebleController.selected.cocina}" title="#{myBundle.EditInmuebleTitle_cocina}" required="true" requiredMessage="#{myBundle.EditInmuebleRequiredMessage_cocina}" size="45" maxlength="45"/>
+                            <p:tooltip for="cocina" value="#{inmuebleController.getComponentMessages('cocina', myBundle.EditInmuebleHelpText_cocina)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_garaje}" for="garaje" />
+                        <h:panelGroup>
+                            <p:inputText id="garaje" value="#{inmuebleController.selected.garaje}" title="#{myBundle.EditInmuebleTitle_garaje}" required="true" requiredMessage="#{myBundle.EditInmuebleRequiredMessage_garaje}" size="4" maxlength="4"/>
+                            <p:tooltip for="garaje" value="#{inmuebleController.getComponentMessages('garaje', myBundle.EditInmuebleHelpText_garaje)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_zonaComun}" for="zonaComun" />
+                        <h:panelGroup>
+                            <p:inputText id="zonaComun" value="#{inmuebleController.selected.zonaComun}" title="#{myBundle.EditInmuebleTitle_zonaComun}" size="45" maxlength="45"/>
+                            <p:tooltip for="zonaComun" value="#{inmuebleController.getComponentMessages('zonaComun', myBundle.EditInmuebleHelpText_zonaComun)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_observaciones}" for="observaciones" />
+                        <h:panelGroup>
+                            <p:inputText id="observaciones" value="#{inmuebleController.selected.observaciones}" title="#{myBundle.EditInmuebleTitle_observaciones}" size="250" maxlength="250"/>
+                            <p:tooltip for="observaciones" value="#{inmuebleController.getComponentMessages('observaciones', myBundle.EditInmuebleHelpText_observaciones)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_personaCollection}" for="personaCollection" />
+                        <h:panelGroup>
+                            <p:selectManyMenu id="personaCollection" value="#{inmuebleController.selected.personaCollection}"  converter="personaConverter">
+                                <f:selectItems value="#{personaController.items}"
+                                               var="personaCollectionItem"
+                                               itemValue="#{personaCollectionItem}"
+                                               itemLabel="#{personaCollectionItem.idPersona.toString()}"
+                                               />
+
+                            </p:selectManyMenu>
+                            <p:tooltip for="personaCollection" value="#{inmuebleController.getComponentMessages('personaCollection', myBundle.EditInmuebleHelpText_personaCollection)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_idBarrio}" for="idBarrio" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="idBarrio" value="#{inmuebleController.selected.idBarrio}" required="true" requiredMessage="#{myBundle.EditInmuebleRequiredMessage_idBarrio}" converter="barrioConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{barrioController.items}"
+                                               var="idBarrioItem"
+                                               itemValue="#{idBarrioItem}"
+                                               itemLabel="#{idBarrioItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="idBarrio" value="#{inmuebleController.getComponentMessages('idBarrio', myBundle.EditInmuebleHelpText_idBarrio)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_idTipoInmueble}" for="idTipoInmueble" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="idTipoInmueble" value="#{inmuebleController.selected.idTipoInmueble}" required="true" requiredMessage="#{myBundle.EditInmuebleRequiredMessage_idTipoInmueble}" converter="tipoInmuebleConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{tipoInmuebleController.items}"
+                                               var="idTipoInmuebleItem"
+                                               itemValue="#{idTipoInmuebleItem}"
+                                               itemLabel="#{idTipoInmuebleItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="idTipoInmueble" value="#{inmuebleController.getComponentMessages('idTipoInmueble', myBundle.EditInmuebleHelpText_idTipoInmueble)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_idDisponibilidad}" for="idDisponibilidad" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="idDisponibilidad" value="#{inmuebleController.selected.idDisponibilidad}" required="true" requiredMessage="#{myBundle.EditInmuebleRequiredMessage_idDisponibilidad}" converter="disponibilidadConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{disponibilidadController.items}"
+                                               var="idDisponibilidadItem"
+                                               itemValue="#{idDisponibilidadItem}"
+                                               itemLabel="#{idDisponibilidadItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="idDisponibilidad" value="#{inmuebleController.getComponentMessages('idDisponibilidad', myBundle.EditInmuebleHelpText_idDisponibilidad)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditInmuebleLabel_idRangoPrecio}" for="idRangoPrecio" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="idRangoPrecio" value="#{inmuebleController.selected.idRangoPrecio}" required="true" requiredMessage="#{myBundle.EditInmuebleRequiredMessage_idRangoPrecio}" converter="rangoPrecioConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{rangoPrecioController.items}"
+                                               var="idRangoPrecioItem"
+                                               itemValue="#{idRangoPrecioItem}"
+                                               itemLabel="#{idRangoPrecioItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="idRangoPrecio" value="#{inmuebleController.getComponentMessages('idRangoPrecio', myBundle.EditInmuebleHelpText_idRangoPrecio)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{inmuebleController.save}" value="#{myBundle.Save}" update="display,:InmuebleListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,InmuebleEditDialog);">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{myBundle.Cancel}" onclick="InmuebleEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

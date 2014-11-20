@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ZonaCreateDlg" widgetVar="ZonaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreateZonaTitle}" closeOnEscape="true">
+
+            <h:form id="ZonaCreateForm">
+
+                <h:panelGroup id="display" rendered="#{zonaController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{myBundle.CreateZonaLabel_descripcion}" for="descripcion" />
+                        <h:panelGroup>
+                            <p:inputText id="descripcion" value="#{zonaController.selected.descripcion}" title="#{myBundle.CreateZonaTitle_descripcion}" required="true" requiredMessage="#{myBundle.CreateZonaRequiredMessage_descripcion}" size="50" maxlength="50"/>
+                            <p:tooltip for="descripcion" value="#{zonaController.getComponentMessages('descripcion', myBundle.CreateZonaHelpText_descripcion)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.CreateZonaLabel_idCiudad}" for="idCiudad" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="idCiudad" value="#{zonaController.selected.idCiudad}" required="true" requiredMessage="#{myBundle.CreateZonaRequiredMessage_idCiudad}" converter="ciudadConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{ciudadController.items}"
+                                               var="idCiudadItem"
+                                               itemValue="#{idCiudadItem}"
+                                               itemLabel="#{idCiudadItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="idCiudad" value="#{zonaController.getComponentMessages('idCiudad', myBundle.CreateZonaHelpText_idCiudad)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{zonaController.saveNew}" value="#{myBundle.Save}" update="display,:ZonaListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,ZonaCreateDialog);">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" onclick="ZonaCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

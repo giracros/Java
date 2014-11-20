@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PersonaCreateDlg" widgetVar="PersonaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreatePersonaTitle}" closeOnEscape="true">
+
+            <h:form id="PersonaCreateForm">
+
+                <h:panelGroup id="display" rendered="#{personaController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{myBundle.CreatePersonaLabel_idPersona}" for="idPersona" />
+                        <h:panelGroup>
+                            <p:inputText id="idPersona" value="#{personaController.selected.idPersona}" title="#{myBundle.CreatePersonaTitle_idPersona}" required="true" requiredMessage="#{myBundle.CreatePersonaRequiredMessage_idPersona}" size="15" maxlength="15"/>
+                            <p:tooltip for="idPersona" value="#{personaController.getComponentMessages('idPersona', myBundle.CreatePersonaHelpText_idPersona)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.CreatePersonaLabel_nombres}" for="nombres" />
+                        <h:panelGroup>
+                            <p:inputText id="nombres" value="#{personaController.selected.nombres}" title="#{myBundle.CreatePersonaTitle_nombres}" required="true" requiredMessage="#{myBundle.CreatePersonaRequiredMessage_nombres}" size="45" maxlength="45"/>
+                            <p:tooltip for="nombres" value="#{personaController.getComponentMessages('nombres', myBundle.CreatePersonaHelpText_nombres)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.CreatePersonaLabel_apellidos}" for="apellidos" />
+                        <h:panelGroup>
+                            <p:inputText id="apellidos" value="#{personaController.selected.apellidos}" title="#{myBundle.CreatePersonaTitle_apellidos}" required="true" requiredMessage="#{myBundle.CreatePersonaRequiredMessage_apellidos}" size="45" maxlength="45"/>
+                            <p:tooltip for="apellidos" value="#{personaController.getComponentMessages('apellidos', myBundle.CreatePersonaHelpText_apellidos)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.CreatePersonaLabel_telefono}" for="telefono" />
+                        <h:panelGroup>
+                            <p:inputText id="telefono" value="#{personaController.selected.telefono}" title="#{myBundle.CreatePersonaTitle_telefono}" required="true" requiredMessage="#{myBundle.CreatePersonaRequiredMessage_telefono}" size="45" maxlength="45"/>
+                            <p:tooltip for="telefono" value="#{personaController.getComponentMessages('telefono', myBundle.CreatePersonaHelpText_telefono)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.CreatePersonaLabel_direccion}" for="direccion" />
+                        <h:panelGroup>
+                            <p:inputText id="direccion" value="#{personaController.selected.direccion}" title="#{myBundle.CreatePersonaTitle_direccion}" required="true" requiredMessage="#{myBundle.CreatePersonaRequiredMessage_direccion}" size="45" maxlength="45"/>
+                            <p:tooltip for="direccion" value="#{personaController.getComponentMessages('direccion', myBundle.CreatePersonaHelpText_direccion)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.CreatePersonaLabel_email}" for="email" />
+                        <h:panelGroup>
+                            <p:inputText id="email" value="#{personaController.selected.email}" title="#{myBundle.CreatePersonaTitle_email}" required="true" requiredMessage="#{myBundle.CreatePersonaRequiredMessage_email}" size="45" maxlength="45"/>
+                            <p:tooltip for="email" value="#{personaController.getComponentMessages('email', myBundle.CreatePersonaHelpText_email)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.CreatePersonaLabel_idRol}" for="idRol" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="idRol" value="#{personaController.selected.idRol}" required="true" requiredMessage="#{myBundle.CreatePersonaRequiredMessage_idRol}" converter="rolConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{rolController.items}"
+                                               var="idRolItem"
+                                               itemValue="#{idRolItem}"
+                                               itemLabel="#{idRolItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="idRol" value="#{personaController.getComponentMessages('idRol', myBundle.CreatePersonaHelpText_idRol)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{personaController.saveNew}" value="#{myBundle.Save}" update="display,:PersonaListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PersonaCreateDialog);">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" onclick="PersonaCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

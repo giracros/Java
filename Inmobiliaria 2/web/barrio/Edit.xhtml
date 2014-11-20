@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="BarrioEditDlg" widgetVar="BarrioEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditBarrioTitle}" closeOnEscape="true">
+
+            <h:form id="BarrioEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{barrioController.selected != null}">
+
+
+                        <h:outputLabel value="#{myBundle.EditBarrioLabel_idBarrio}" for="idBarrio" />
+                        <h:panelGroup>
+                            <h:outputText id="idBarrio" value="#{barrioController.selected.idBarrio}" />
+                            <p:tooltip for="idBarrio" value="#{barrioController.getComponentMessages('idBarrio', myBundle.EditBarrioHelpText_idBarrio)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditBarrioLabel_descripcion}" for="descripcion" />
+                        <h:panelGroup>
+                            <p:inputText id="descripcion" value="#{barrioController.selected.descripcion}" title="#{myBundle.EditBarrioTitle_descripcion}" required="true" requiredMessage="#{myBundle.EditBarrioRequiredMessage_descripcion}" size="50" maxlength="50"/>
+                            <p:tooltip for="descripcion" value="#{barrioController.getComponentMessages('descripcion', myBundle.EditBarrioHelpText_descripcion)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditBarrioLabel_tipoInmuebleCollection}" for="tipoInmuebleCollection" />
+                        <h:panelGroup>
+                            <p:selectManyMenu id="tipoInmuebleCollection" value="#{barrioController.selected.tipoInmuebleCollection}"  converter="tipoInmuebleConverter">
+                                <f:selectItems value="#{tipoInmuebleController.items}"
+                                               var="tipoInmuebleCollectionItem"
+                                               itemValue="#{tipoInmuebleCollectionItem}"
+                                               itemLabel="#{tipoInmuebleCollectionItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectManyMenu>
+                            <p:tooltip for="tipoInmuebleCollection" value="#{barrioController.getComponentMessages('tipoInmuebleCollection', myBundle.EditBarrioHelpText_tipoInmuebleCollection)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditBarrioLabel_idZona}" for="idZona" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="idZona" value="#{barrioController.selected.idZona}" required="true" requiredMessage="#{myBundle.EditBarrioRequiredMessage_idZona}" converter="zonaConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{zonaController.items}"
+                                               var="idZonaItem"
+                                               itemValue="#{idZonaItem}"
+                                               itemLabel="#{idZonaItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="idZona" value="#{barrioController.getComponentMessages('idZona', myBundle.EditBarrioHelpText_idZona)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{barrioController.save}" value="#{myBundle.Save}" update="display,:BarrioListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,BarrioEditDialog);">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{myBundle.Cancel}" onclick="BarrioEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

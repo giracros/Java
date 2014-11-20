@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="BarrioListForm">
+
+        <p:panel header="#{myBundle.ListBarrioTitle}">
+            <p:contextMenu id="BarrioDataTableContextMenu" for="datalist">  
+                <p:menuitem value="#{myBundle.Create}" onclick="document.getElementById('BarrioListForm:createButton').click();" icon="ui-icon-plus"/>
+                <p:menuitem value="#{myBundle.View}" onclick="document.getElementById('BarrioListForm:viewButton').click();" icon="ui-icon-search"/>
+                <p:menuitem value="#{myBundle.Edit}" onclick="document.getElementById('BarrioListForm:editButton').click();" icon="ui-icon-pencil"/>
+                <p:menuitem value="#{myBundle.Delete}" onclick="document.getElementById('BarrioListForm:deleteButton').click();" icon="ui-icon-trash"/>
+                <p:separator/>
+                <p:menuitem value="#{myBundle.BarrioMenuItem_tipoInmuebleCollection}" icon="ui-icon-search"  action="#{barrioController.navigateTipoInmuebleCollection}" disabled="#{empty barrioController.selected.tipoInmuebleCollection}" ajax="false"/>  
+                <p:menuitem value="#{myBundle.BarrioMenuItem_inmuebleCollection}" icon="ui-icon-search"  action="#{barrioController.navigateInmuebleCollection}" disabled="#{empty barrioController.selected.inmuebleCollection}" ajax="false"/>  
+                <p:menuitem value="#{myBundle.BarrioMenuItem_idZona}" icon="ui-icon-search"  actionListener="#{barrioController.prepareIdZona}" update=":ZonaViewForm" oncomplete="ZonaViewDialog.show()" disabled="#{empty barrioController.selected.idZona}"/>  
+            </p:contextMenu>
+            <p:dataTable id="datalist"
+                         value="#{barrioController.items}"
+                         var="item"
+                         rowKey="#{item.idBarrio}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single"
+                         selection="#{barrioController.selected}">
+
+                <p:ajax event="rowSelect"   update=":BarrioListForm:createButton :BarrioListForm:viewButton :BarrioListForm:editButton :BarrioListForm:deleteButton :BarrioListForm:BarrioDataTableContextMenu" listener="#{barrioController.resetParents}"/>
+                <p:ajax event="rowUnselect" update=":BarrioListForm:createButton :BarrioListForm:viewButton :BarrioListForm:editButton :BarrioListForm:deleteButton :BarrioListForm:BarrioDataTableContextMenu" listener="#{barrioController.resetParents}"/>
+                <p:ajax event="rowDblselect" onsuccess="document.getElementById('BarrioListForm:viewButton').click();"/>
+
+                <p:column sortBy="#{item.idBarrio}" filterBy="#{item.idBarrio}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListBarrioTitle_idBarrio}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.idBarrio}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.descripcion}" filterBy="#{item.descripcion}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListBarrioTitle_descripcion}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.descripcion}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.idZona.descripcion}" filterBy="#{item.idZona.descripcion}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListBarrioTitle_idZona}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.idZona.descripcion}"/>
+                </p:column>
+
+
+            </p:dataTable>
+
+            <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{myBundle.Create}" actionListener="#{barrioController.prepareCreate}" update=":BarrioCreateForm" oncomplete="BarrioCreateDialog.show()"/>
+            <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{myBundle.View}" update=":BarrioViewForm" oncomplete="BarrioViewDialog.show()" disabled="#{empty barrioController.selected}"/>
+            <p:commandButton id="editButton"   style="visibility: hidden;" icon="ui-icon-pencil" value="#{myBundle.Edit}" update=":BarrioEditForm" oncomplete="BarrioEditDialog.show()" disabled="#{empty barrioController.selected}"/>
+            <p:commandButton id="deleteButton" style="visibility: hidden;" icon="ui-icon-trash"  value="#{myBundle.Delete}" actionListener="#{barrioController.delete}" update=":growl,datalist" disabled="#{empty barrioController.selected}">
+                <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+            </p:commandButton>
+
+        </p:panel>
+        <ui:include src="/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="DisponibilidadCreateDlg" widgetVar="DisponibilidadCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreateDisponibilidadTitle}" closeOnEscape="true">
+
+            <h:form id="DisponibilidadCreateForm">
+
+                <h:panelGroup id="display" rendered="#{disponibilidadController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{myBundle.CreateDisponibilidadLabel_descripcion}" for="descripcion" />
+                        <h:panelGroup>
+                            <p:inputText id="descripcion" value="#{disponibilidadController.selected.descripcion}" title="#{myBundle.CreateDisponibilidadTitle_descripcion}" required="true" requiredMessage="#{myBundle.CreateDisponibilidadRequiredMessage_descripcion}" size="45" maxlength="45"/>
+                            <p:tooltip for="descripcion" value="#{disponibilidadController.getComponentMessages('descripcion', myBundle.CreateDisponibilidadHelpText_descripcion)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.CreateDisponibilidadLabel_tipoInmuebleCollection}" for="tipoInmuebleCollection" />
+                        <h:panelGroup>
+                            <p:selectManyMenu id="tipoInmuebleCollection" value="#{disponibilidadController.selected.tipoInmuebleCollection}"  converter="tipoInmuebleConverter">
+                                <f:selectItems value="#{tipoInmuebleController.items}"
+                                               var="tipoInmuebleCollectionItem"
+                                               itemValue="#{tipoInmuebleCollectionItem}"
+                                               itemLabel="#{tipoInmuebleCollectionItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectManyMenu>
+                            <p:tooltip for="tipoInmuebleCollection" value="#{disponibilidadController.getComponentMessages('tipoInmuebleCollection', myBundle.CreateDisponibilidadHelpText_tipoInmuebleCollection)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.CreateDisponibilidadLabel_rangoPrecioCollection}" for="rangoPrecioCollection" />
+                        <h:panelGroup>
+                            <p:selectManyMenu id="rangoPrecioCollection" value="#{disponibilidadController.selected.rangoPrecioCollection}"  converter="rangoPrecioConverter">
+                                <f:selectItems value="#{rangoPrecioController.items}"
+                                               var="rangoPrecioCollectionItem"
+                                               itemValue="#{rangoPrecioCollectionItem}"
+                                               itemLabel="#{rangoPrecioCollectionItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectManyMenu>
+                            <p:tooltip for="rangoPrecioCollection" value="#{disponibilidadController.getComponentMessages('rangoPrecioCollection', myBundle.CreateDisponibilidadHelpText_rangoPrecioCollection)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{disponibilidadController.saveNew}" value="#{myBundle.Save}" update="display,:DisponibilidadListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,DisponibilidadCreateDialog);">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" onclick="DisponibilidadCreateDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

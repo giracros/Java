@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="CiudadEditDlg" widgetVar="CiudadEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditCiudadTitle}" closeOnEscape="true">
+
+            <h:form id="CiudadEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{ciudadController.selected != null}">
+
+
+                        <h:outputLabel value="#{myBundle.EditCiudadLabel_idCiudad}" for="idCiudad" />
+                        <h:panelGroup>
+                            <h:outputText id="idCiudad" value="#{ciudadController.selected.idCiudad}" />
+                            <p:tooltip for="idCiudad" value="#{ciudadController.getComponentMessages('idCiudad', myBundle.EditCiudadHelpText_idCiudad)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditCiudadLabel_descripcion}" for="descripcion" />
+                        <h:panelGroup>
+                            <p:inputText id="descripcion" value="#{ciudadController.selected.descripcion}" title="#{myBundle.EditCiudadTitle_descripcion}" required="true" requiredMessage="#{myBundle.EditCiudadRequiredMessage_descripcion}" size="50" maxlength="50"/>
+                            <p:tooltip for="descripcion" value="#{ciudadController.getComponentMessages('descripcion', myBundle.EditCiudadHelpText_descripcion)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditCiudadLabel_idDepartamento}" for="idDepartamento" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="idDepartamento" value="#{ciudadController.selected.idDepartamento}" required="true" requiredMessage="#{myBundle.EditCiudadRequiredMessage_idDepartamento}" converter="departamentoConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{departamentoController.items}"
+                                               var="idDepartamentoItem"
+                                               itemValue="#{idDepartamentoItem}"
+                                               itemLabel="#{idDepartamentoItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="idDepartamento" value="#{ciudadController.getComponentMessages('idDepartamento', myBundle.EditCiudadHelpText_idDepartamento)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{ciudadController.save}" value="#{myBundle.Save}" update="display,:CiudadListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,CiudadEditDialog);">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{myBundle.Cancel}" onclick="CiudadEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="PersonaEditDlg" widgetVar="PersonaEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditPersonaTitle}" closeOnEscape="true">
+
+            <h:form id="PersonaEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{personaController.selected != null}">
+
+
+                        <h:outputLabel value="#{myBundle.EditPersonaLabel_idPersona}" for="idPersona" />
+                        <h:panelGroup>
+                            <h:outputText id="idPersona" value="#{personaController.selected.idPersona}" />
+                            <p:tooltip for="idPersona" value="#{personaController.getComponentMessages('idPersona', myBundle.EditPersonaHelpText_idPersona)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_nombres}" for="nombres" />
+                        <h:panelGroup>
+                            <p:inputText id="nombres" value="#{personaController.selected.nombres}" title="#{myBundle.EditPersonaTitle_nombres}" required="true" requiredMessage="#{myBundle.EditPersonaRequiredMessage_nombres}" size="45" maxlength="45"/>
+                            <p:tooltip for="nombres" value="#{personaController.getComponentMessages('nombres', myBundle.EditPersonaHelpText_nombres)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_apellidos}" for="apellidos" />
+                        <h:panelGroup>
+                            <p:inputText id="apellidos" value="#{personaController.selected.apellidos}" title="#{myBundle.EditPersonaTitle_apellidos}" required="true" requiredMessage="#{myBundle.EditPersonaRequiredMessage_apellidos}" size="45" maxlength="45"/>
+                            <p:tooltip for="apellidos" value="#{personaController.getComponentMessages('apellidos', myBundle.EditPersonaHelpText_apellidos)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_telefono}" for="telefono" />
+                        <h:panelGroup>
+                            <p:inputText id="telefono" value="#{personaController.selected.telefono}" title="#{myBundle.EditPersonaTitle_telefono}" required="true" requiredMessage="#{myBundle.EditPersonaRequiredMessage_telefono}" size="45" maxlength="45"/>
+                            <p:tooltip for="telefono" value="#{personaController.getComponentMessages('telefono', myBundle.EditPersonaHelpText_telefono)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_direccion}" for="direccion" />
+                        <h:panelGroup>
+                            <p:inputText id="direccion" value="#{personaController.selected.direccion}" title="#{myBundle.EditPersonaTitle_direccion}" required="true" requiredMessage="#{myBundle.EditPersonaRequiredMessage_direccion}" size="45" maxlength="45"/>
+                            <p:tooltip for="direccion" value="#{personaController.getComponentMessages('direccion', myBundle.EditPersonaHelpText_direccion)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_email}" for="email" />
+                        <h:panelGroup>
+                            <p:inputText id="email" value="#{personaController.selected.email}" title="#{myBundle.EditPersonaTitle_email}" required="true" requiredMessage="#{myBundle.EditPersonaRequiredMessage_email}" size="45" maxlength="45"/>
+                            <p:tooltip for="email" value="#{personaController.getComponentMessages('email', myBundle.EditPersonaHelpText_email)}"/>
+                        </h:panelGroup>
+
+                        <p:outputLabel value="#{myBundle.EditPersonaLabel_idRol}" for="idRol" />
+                        <h:panelGroup>
+                            <p:selectOneMenu id="idRol" value="#{personaController.selected.idRol}" required="true" requiredMessage="#{myBundle.EditPersonaRequiredMessage_idRol}" converter="rolConverter">
+                                <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                                <f:selectItems value="#{rolController.items}"
+                                               var="idRolItem"
+                                               itemValue="#{idRolItem}"
+                                               itemLabel="#{idRolItem.descripcion.toString()}"
+                                               />
+
+                            </p:selectOneMenu>
+                            <p:tooltip for="idRol" value="#{personaController.getComponentMessages('idRol', myBundle.EditPersonaHelpText_idRol)}"/>
+                        </h:panelGroup>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{personaController.save}" value="#{myBundle.Save}" update="display,:PersonaListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PersonaEditDialog);">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{myBundle.Cancel}" onclick="PersonaEditDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

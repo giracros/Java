@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InmuebleViewDlg" widgetVar="InmuebleViewDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.ViewInmuebleTitle}" closeOnEscape="true">
+
+            <h:form id="InmuebleViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" columnClasses="column" rendered="#{inmuebleController.selected != null}">
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_codigoInmueble}"/>
+                        <h:outputText value="#{inmuebleController.selected.codigoInmueble}" title="#{myBundle.ViewInmuebleTitle_codigoInmueble}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_estrato}"/>
+                        <h:outputText value="#{inmuebleController.selected.estrato}" title="#{myBundle.ViewInmuebleTitle_estrato}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_area}"/>
+                        <h:outputText value="#{inmuebleController.selected.area}" title="#{myBundle.ViewInmuebleTitle_area}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_nivelPiso}"/>
+                        <h:outputText value="#{inmuebleController.selected.nivelPiso}" title="#{myBundle.ViewInmuebleTitle_nivelPiso}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_alcobas}"/>
+                        <h:outputText value="#{inmuebleController.selected.alcobas}" title="#{myBundle.ViewInmuebleTitle_alcobas}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_baños}"/>
+                        <h:outputText value="#{inmuebleController.selected.baños}" title="#{myBundle.ViewInmuebleTitle_baños}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_patios}"/>
+                        <h:outputText value="#{inmuebleController.selected.patios}" title="#{myBundle.ViewInmuebleTitle_patios}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_espacios}"/>
+                        <h:outputText value="#{inmuebleController.selected.espacios}" title="#{myBundle.ViewInmuebleTitle_espacios}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_cocina}"/>
+                        <h:outputText value="#{inmuebleController.selected.cocina}" title="#{myBundle.ViewInmuebleTitle_cocina}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_garaje}"/>
+                        <h:outputText value="#{inmuebleController.selected.garaje}" title="#{myBundle.ViewInmuebleTitle_garaje}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_zonaComun}"/>
+                        <h:outputText value="#{inmuebleController.selected.zonaComun}" title="#{myBundle.ViewInmuebleTitle_zonaComun}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_observaciones}"/>
+                        <h:outputText value="#{inmuebleController.selected.observaciones}" title="#{myBundle.ViewInmuebleTitle_observaciones}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_personaCollection}"/>
+                        <h:selectManyMenu converter="personaConverter">
+                            <f:selectItems value="#{inmuebleController.selected.personaCollection}"
+                                           var="personaCollectionItem"
+                                           itemValue="#{personaCollectionItem}"
+                                           itemLabel="#{personaCollectionItem.idPersona.toString()}"
+                                           />
+
+                        </h:selectManyMenu>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_idBarrio}"/>
+                        <h:outputText value="#{inmuebleController.selected.idBarrio.descripcion}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_idTipoInmueble}"/>
+                        <h:outputText value="#{inmuebleController.selected.idTipoInmueble.descripcion}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_idDisponibilidad}"/>
+                        <h:outputText value="#{inmuebleController.selected.idDisponibilidad.descripcion}"/>
+
+                        <h:outputText value="#{myBundle.ViewInmuebleLabel_idRangoPrecio}"/>
+                        <h:outputText value="#{inmuebleController.selected.idRangoPrecio.descripcion}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{myBundle.Close}" onclick="InmuebleViewDialog.hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>
