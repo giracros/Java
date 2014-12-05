@@ -1,0 +1,2 @@
+INDEX VERSION 1.3+/Users/danielfuentes/GitHub/Java/EE/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+1664909901.index

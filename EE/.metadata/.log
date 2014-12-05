@@ -1,0 +1,384 @@
+!SESSION 2014-12-04 20:14:32.967 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/danielfuentes/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/danielfuentes/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.m2e.logback.configuration 2 0 2014-12-04 20:15:02.925
+!MESSAGE Exception while setting up logging:org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+!STACK 0
+java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+	at org.eclipse.m2e.logback.configuration.LogHelper.logJavaProperties(LogHelper.java:26)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.loadConfiguration(LogPlugin.java:189)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.configureLogback(LogPlugin.java:144)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.access$2(LogPlugin.java:107)
+	at org.eclipse.m2e.logback.configuration.LogPlugin$1.run(LogPlugin.java:62)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+
+!ENTRY org.eclipse.core.net 1 0 2014-12-04 20:15:05.719
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-12-04 20:17:13.869
+!MESSAGE Invalid site reference %updateSiteURL in feature com.pramati.eclipse.feature.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-12-04 20:17:13.871
+!MESSAGE Invalid site reference %updateSiteURL in feature com.pramati.eclipse.feature.
+
+!ENTRY org.eclipse.equinox.p2.publisher.eclipse 4 0 2014-12-04 20:17:13.871
+!MESSAGE Invalid site reference %updateSiteURL in feature com.pramati.eclipse.feature.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-12-04 20:17:17.611
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Artifact not found: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.1.jar.
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:282)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeaturesFromSite(UpdateSite.java:578)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeatures(UpdateSite.java:474)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteFeaturesAction.perform(RemoteFeaturesAction.java:39)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteUpdateSiteAction.perform(RemoteUpdateSiteAction.java:50)
+	at org.eclipse.equinox.p2.publisher.Publisher$ArtifactProcess.run(Publisher.java:207)
+	at org.eclipse.equinox.p2.publisher.Publisher.publish(Publisher.java:237)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.generateMetadata(UpdateSiteMetadataRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.initializeRepository(UpdateSiteMetadataRepositoryFactory.java:105)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.load(UpdateSiteMetadataRepositoryFactory.java:59)
+	at org.eclipse.wst.server.discovery.internal.model.ExtensionUpdateSite.getExtensions(ExtensionUpdateSite.java:74)
+	at org.eclipse.wst.server.discovery.internal.ExtensionUtility$1.run(ExtensionUtility.java:201)
+Caused by: java.io.FileNotFoundException: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.1.jar
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.checkFileNotFound(RepositoryStatusHelper.java:297)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:441)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:398)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:322)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:267)
+	... 11 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1200 2014-12-04 20:17:17.612
+!MESSAGE Artifact not found: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.1.jar.
+!STACK 0
+java.io.FileNotFoundException: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.1.jar
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.checkFileNotFound(RepositoryStatusHelper.java:297)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:441)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:398)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:322)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:267)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeaturesFromSite(UpdateSite.java:578)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeatures(UpdateSite.java:474)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteFeaturesAction.perform(RemoteFeaturesAction.java:39)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteUpdateSiteAction.perform(RemoteUpdateSiteAction.java:50)
+	at org.eclipse.equinox.p2.publisher.Publisher$ArtifactProcess.run(Publisher.java:207)
+	at org.eclipse.equinox.p2.publisher.Publisher.publish(Publisher.java:237)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.generateMetadata(UpdateSiteMetadataRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.initializeRepository(UpdateSiteMetadataRepositoryFactory.java:105)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.load(UpdateSiteMetadataRepositoryFactory.java:59)
+	at org.eclipse.wst.server.discovery.internal.model.ExtensionUpdateSite.getExtensions(ExtensionUpdateSite.java:74)
+	at org.eclipse.wst.server.discovery.internal.ExtensionUtility$1.run(ExtensionUtility.java:201)
+
+!ENTRY org.eclipse.equinox.p2.updatesite 4 0 2014-12-04 20:17:17.621
+!MESSAGE Error reading feature http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-12-04 20:17:18.264
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Artifact not found: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v21.feature_2.1.1.jar.
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:282)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeaturesFromSite(UpdateSite.java:578)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeatures(UpdateSite.java:474)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteFeaturesAction.perform(RemoteFeaturesAction.java:39)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteUpdateSiteAction.perform(RemoteUpdateSiteAction.java:50)
+	at org.eclipse.equinox.p2.publisher.Publisher$ArtifactProcess.run(Publisher.java:207)
+	at org.eclipse.equinox.p2.publisher.Publisher.publish(Publisher.java:237)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.generateMetadata(UpdateSiteMetadataRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.initializeRepository(UpdateSiteMetadataRepositoryFactory.java:105)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.load(UpdateSiteMetadataRepositoryFactory.java:59)
+	at org.eclipse.wst.server.discovery.internal.model.ExtensionUpdateSite.getExtensions(ExtensionUpdateSite.java:74)
+	at org.eclipse.wst.server.discovery.internal.ExtensionUtility$1.run(ExtensionUtility.java:201)
+Caused by: java.io.FileNotFoundException: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v21.feature_2.1.1.jar
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.checkFileNotFound(RepositoryStatusHelper.java:297)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:441)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:398)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:322)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:267)
+	... 11 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1200 2014-12-04 20:17:18.264
+!MESSAGE Artifact not found: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v21.feature_2.1.1.jar.
+!STACK 0
+java.io.FileNotFoundException: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v21.feature_2.1.1.jar
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.checkFileNotFound(RepositoryStatusHelper.java:297)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:441)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:398)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:322)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:267)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeaturesFromSite(UpdateSite.java:578)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeatures(UpdateSite.java:474)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteFeaturesAction.perform(RemoteFeaturesAction.java:39)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteUpdateSiteAction.perform(RemoteUpdateSiteAction.java:50)
+	at org.eclipse.equinox.p2.publisher.Publisher$ArtifactProcess.run(Publisher.java:207)
+	at org.eclipse.equinox.p2.publisher.Publisher.publish(Publisher.java:237)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.generateMetadata(UpdateSiteMetadataRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.initializeRepository(UpdateSiteMetadataRepositoryFactory.java:105)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.load(UpdateSiteMetadataRepositoryFactory.java:59)
+	at org.eclipse.wst.server.discovery.internal.model.ExtensionUpdateSite.getExtensions(ExtensionUpdateSite.java:74)
+	at org.eclipse.wst.server.discovery.internal.ExtensionUtility$1.run(ExtensionUtility.java:201)
+
+!ENTRY org.eclipse.equinox.p2.updatesite 4 0 2014-12-04 20:17:18.266
+!MESSAGE Error reading feature http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v21.feature_2.1.1.jar.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-12-04 20:17:18.966
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Artifact not found: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.3.jar.
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:282)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeaturesFromSite(UpdateSite.java:578)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeatures(UpdateSite.java:474)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteFeaturesAction.perform(RemoteFeaturesAction.java:39)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteUpdateSiteAction.perform(RemoteUpdateSiteAction.java:50)
+	at org.eclipse.equinox.p2.publisher.Publisher$ArtifactProcess.run(Publisher.java:207)
+	at org.eclipse.equinox.p2.publisher.Publisher.publish(Publisher.java:237)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.generateMetadata(UpdateSiteMetadataRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.initializeRepository(UpdateSiteMetadataRepositoryFactory.java:105)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.load(UpdateSiteMetadataRepositoryFactory.java:59)
+	at org.eclipse.wst.server.discovery.internal.model.ExtensionUpdateSite.getExtensions(ExtensionUpdateSite.java:74)
+	at org.eclipse.wst.server.discovery.internal.ExtensionUtility$1.run(ExtensionUtility.java:201)
+Caused by: java.io.FileNotFoundException: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.3.jar
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.checkFileNotFound(RepositoryStatusHelper.java:297)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:441)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:398)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:322)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:267)
+	... 11 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1200 2014-12-04 20:17:18.966
+!MESSAGE Artifact not found: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.3.jar.
+!STACK 0
+java.io.FileNotFoundException: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.3.jar
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.checkFileNotFound(RepositoryStatusHelper.java:297)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:441)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:398)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:322)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:267)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeaturesFromSite(UpdateSite.java:578)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeatures(UpdateSite.java:474)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteFeaturesAction.perform(RemoteFeaturesAction.java:39)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteUpdateSiteAction.perform(RemoteUpdateSiteAction.java:50)
+	at org.eclipse.equinox.p2.publisher.Publisher$ArtifactProcess.run(Publisher.java:207)
+	at org.eclipse.equinox.p2.publisher.Publisher.publish(Publisher.java:237)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.generateMetadata(UpdateSiteMetadataRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.initializeRepository(UpdateSiteMetadataRepositoryFactory.java:105)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.load(UpdateSiteMetadataRepositoryFactory.java:59)
+	at org.eclipse.wst.server.discovery.internal.model.ExtensionUpdateSite.getExtensions(ExtensionUpdateSite.java:74)
+	at org.eclipse.wst.server.discovery.internal.ExtensionUtility$1.run(ExtensionUtility.java:201)
+
+!ENTRY org.eclipse.equinox.p2.updatesite 4 0 2014-12-04 20:17:18.974
+!MESSAGE Error reading feature http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.3.jar.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-12-04 20:17:19.698
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Artifact not found: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v21.feature_2.1.3.jar.
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:282)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeaturesFromSite(UpdateSite.java:578)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeatures(UpdateSite.java:474)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteFeaturesAction.perform(RemoteFeaturesAction.java:39)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteUpdateSiteAction.perform(RemoteUpdateSiteAction.java:50)
+	at org.eclipse.equinox.p2.publisher.Publisher$ArtifactProcess.run(Publisher.java:207)
+	at org.eclipse.equinox.p2.publisher.Publisher.publish(Publisher.java:237)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.generateMetadata(UpdateSiteMetadataRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.initializeRepository(UpdateSiteMetadataRepositoryFactory.java:105)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.load(UpdateSiteMetadataRepositoryFactory.java:59)
+	at org.eclipse.wst.server.discovery.internal.model.ExtensionUpdateSite.getExtensions(ExtensionUpdateSite.java:74)
+	at org.eclipse.wst.server.discovery.internal.ExtensionUtility$1.run(ExtensionUtility.java:201)
+Caused by: java.io.FileNotFoundException: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v21.feature_2.1.3.jar
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.checkFileNotFound(RepositoryStatusHelper.java:297)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:441)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:398)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:322)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:267)
+	... 11 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1200 2014-12-04 20:17:19.698
+!MESSAGE Artifact not found: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v21.feature_2.1.3.jar.
+!STACK 0
+java.io.FileNotFoundException: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v21.feature_2.1.3.jar
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.checkFileNotFound(RepositoryStatusHelper.java:297)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:441)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:398)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:322)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:267)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeaturesFromSite(UpdateSite.java:578)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeatures(UpdateSite.java:474)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteFeaturesAction.perform(RemoteFeaturesAction.java:39)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteUpdateSiteAction.perform(RemoteUpdateSiteAction.java:50)
+	at org.eclipse.equinox.p2.publisher.Publisher$ArtifactProcess.run(Publisher.java:207)
+	at org.eclipse.equinox.p2.publisher.Publisher.publish(Publisher.java:237)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.generateMetadata(UpdateSiteMetadataRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.initializeRepository(UpdateSiteMetadataRepositoryFactory.java:105)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.load(UpdateSiteMetadataRepositoryFactory.java:59)
+	at org.eclipse.wst.server.discovery.internal.model.ExtensionUpdateSite.getExtensions(ExtensionUpdateSite.java:74)
+	at org.eclipse.wst.server.discovery.internal.ExtensionUtility$1.run(ExtensionUtility.java:201)
+
+!ENTRY org.eclipse.equinox.p2.updatesite 4 0 2014-12-04 20:17:19.698
+!MESSAGE Error reading feature http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v21.feature_2.1.3.jar.
+
+!ENTRY org.eclipse.equinox.p2.core 4 0 2014-12-04 20:17:20.511
+!MESSAGE Provisioning exception
+!STACK 1
+org.eclipse.equinox.p2.core.ProvisionException: Artifact not found: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.4.jar.
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:282)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeaturesFromSite(UpdateSite.java:578)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeatures(UpdateSite.java:474)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteFeaturesAction.perform(RemoteFeaturesAction.java:39)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteUpdateSiteAction.perform(RemoteUpdateSiteAction.java:50)
+	at org.eclipse.equinox.p2.publisher.Publisher$ArtifactProcess.run(Publisher.java:207)
+	at org.eclipse.equinox.p2.publisher.Publisher.publish(Publisher.java:237)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.generateMetadata(UpdateSiteMetadataRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.initializeRepository(UpdateSiteMetadataRepositoryFactory.java:105)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.load(UpdateSiteMetadataRepositoryFactory.java:59)
+	at org.eclipse.wst.server.discovery.internal.model.ExtensionUpdateSite.getExtensions(ExtensionUpdateSite.java:74)
+	at org.eclipse.wst.server.discovery.internal.ExtensionUtility$1.run(ExtensionUtility.java:201)
+Caused by: java.io.FileNotFoundException: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.4.jar
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.checkFileNotFound(RepositoryStatusHelper.java:297)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:441)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:398)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:322)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:267)
+	... 11 more
+!SUBENTRY 1 org.eclipse.equinox.p2.transport.ecf 4 1200 2014-12-04 20:17:20.512
+!MESSAGE Artifact not found: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.4.jar.
+!STACK 0
+java.io.FileNotFoundException: http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.4.jar
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryStatusHelper.checkFileNotFound(RepositoryStatusHelper.java:297)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.checkException(FileReader.java:441)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.sendRetrieveRequest(FileReader.java:398)
+	at org.eclipse.equinox.internal.p2.transport.ecf.FileReader.readInto(FileReader.java:322)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:101)
+	at org.eclipse.equinox.internal.p2.transport.ecf.RepositoryTransport.download(RepositoryTransport.java:156)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.parseFeature(UpdateSite.java:267)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeaturesFromSite(UpdateSite.java:578)
+	at org.eclipse.equinox.internal.p2.updatesite.UpdateSite.loadFeatures(UpdateSite.java:474)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteFeaturesAction.perform(RemoteFeaturesAction.java:39)
+	at org.eclipse.equinox.internal.p2.updatesite.RemoteUpdateSiteAction.perform(RemoteUpdateSiteAction.java:50)
+	at org.eclipse.equinox.p2.publisher.Publisher$ArtifactProcess.run(Publisher.java:207)
+	at org.eclipse.equinox.p2.publisher.Publisher.publish(Publisher.java:237)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.generateMetadata(UpdateSiteMetadataRepositoryFactory.java:120)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.initializeRepository(UpdateSiteMetadataRepositoryFactory.java:105)
+	at org.eclipse.equinox.internal.p2.updatesite.metadata.UpdateSiteMetadataRepositoryFactory.load(UpdateSiteMetadataRepositoryFactory.java:59)
+	at org.eclipse.wst.server.discovery.internal.model.ExtensionUpdateSite.getExtensions(ExtensionUpdateSite.java:74)
+	at org.eclipse.wst.server.discovery.internal.ExtensionUtility$1.run(ExtensionUtility.java:201)
+
+!ENTRY org.eclipse.equinox.p2.updatesite 4 0 2014-12-04 20:17:20.520
+!MESSAGE Error reading feature http://public.dhe.ibm.com/software/websphere/wasce/updates/features/com.ibm.wasce.v20.feature_2.1.4.jar.
+!SESSION 2014-12-04 20:38:06.490 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/danielfuentes/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/danielfuentes/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.m2e.logback.configuration 2 0 2014-12-04 20:38:28.245
+!MESSAGE Exception while setting up logging:org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+!STACK 0
+java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+	at org.eclipse.m2e.logback.configuration.LogHelper.logJavaProperties(LogHelper.java:26)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.loadConfiguration(LogPlugin.java:189)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.configureLogback(LogPlugin.java:144)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.access$2(LogPlugin.java:107)
+	at org.eclipse.m2e.logback.configuration.LogPlugin$1.run(LogPlugin.java:62)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+
+!ENTRY org.eclipse.core.net 1 0 2014-12-04 20:38:31.439
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+!SESSION 2014-12-04 20:43:37.883 -----------------------------------------------
+eclipse.buildId=4.4.1.M20140925-0400
+java.version=1.8.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/danielfuentes/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/danielfuentes/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.m2e.logback.configuration 2 0 2014-12-04 20:43:40.747
+!MESSAGE Exception while setting up logging:org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+!STACK 0
+java.lang.ClassCastException: org.eclipse.osgi.internal.framework.EquinoxConfiguration$1 cannot be cast to java.lang.String
+	at org.eclipse.m2e.logback.configuration.LogHelper.logJavaProperties(LogHelper.java:26)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.loadConfiguration(LogPlugin.java:189)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.configureLogback(LogPlugin.java:144)
+	at org.eclipse.m2e.logback.configuration.LogPlugin.access$2(LogPlugin.java:107)
+	at org.eclipse.m2e.logback.configuration.LogPlugin$1.run(LogPlugin.java:62)
+	at java.util.TimerThread.mainLoop(Timer.java:555)
+	at java.util.TimerThread.run(Timer.java:505)
+
+!ENTRY org.eclipse.core.net 1 0 2014-12-04 20:43:43.507
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.core.resources 4 4 2014-12-04 20:44:06.694
+!MESSAGE Exception occurred while saving project preferences: /TaskManagerApp/.settings/org.eclipse.wst.validation.prefs.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: The resource tree is locked for modifications.
+	at org.eclipse.core.internal.resources.WorkManager.checkIn(WorkManager.java:116)
+	at org.eclipse.core.internal.resources.Workspace.prepareOperation(Workspace.java:2251)
+	at org.eclipse.core.internal.resources.File.setContents(File.java:356)
+	at org.eclipse.core.internal.resources.ProjectPreferences$1.run(ProjectPreferences.java:615)
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:643)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:471)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:363)
+	at org.eclipse.wst.validation.internal.PreferencesWrapper$PreferencesWrapperPersistent.flush(PreferencesWrapper.java:109)
+	at org.eclipse.wst.validation.internal.ProjectConfiguration.store(ProjectConfiguration.java:595)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.closing(ConfigurationManager.java:168)
+	at org.eclipse.wst.validation.internal.EventManager.closing(EventManager.java:121)
+	at org.eclipse.wst.validation.internal.EventManager.resourceChanged(EventManager.java:248)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.handleEvent(NotificationManager.java:249)
+	at org.eclipse.core.internal.resources.Workspace.broadcastEvent(Workspace.java:373)
+	at org.eclipse.core.internal.resources.Project.close(Project.java:199)
+	at org.eclipse.ui.actions.CloseResourceAction.invokeOperation(CloseResourceAction.java:129)
+	at org.eclipse.ui.actions.WorkspaceAction.execute(WorkspaceAction.java:164)
+	at org.eclipse.ui.actions.WorkspaceAction$2.runInWorkspace(WorkspaceAction.java:485)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+!SUBENTRY 1 org.eclipse.core.resources 4 380 2014-12-04 20:44:06.695
+!MESSAGE The resource tree is locked for modifications.
+
+!ENTRY org.eclipse.wst.validation 4 0 2014-12-04 20:44:06.696
+!MESSAGE Exception occurred while saving project preferences: /TaskManagerApp/.settings/org.eclipse.wst.validation.prefs.
+!STACK 0
+org.osgi.service.prefs.BackingStoreException: Exception occurred while saving project preferences: /TaskManagerApp/.settings/org.eclipse.wst.validation.prefs.
+	at org.eclipse.core.internal.resources.ProjectPreferences.save(ProjectPreferences.java:658)
+	at org.eclipse.core.internal.preferences.EclipsePreferences.internalFlush(EclipsePreferences.java:471)
+	at org.eclipse.core.internal.resources.ProjectPreferences.flush(ProjectPreferences.java:363)
+	at org.eclipse.wst.validation.internal.PreferencesWrapper$PreferencesWrapperPersistent.flush(PreferencesWrapper.java:109)
+	at org.eclipse.wst.validation.internal.ProjectConfiguration.store(ProjectConfiguration.java:595)
+	at org.eclipse.wst.validation.internal.ConfigurationManager.closing(ConfigurationManager.java:168)
+	at org.eclipse.wst.validation.internal.EventManager.closing(EventManager.java:121)
+	at org.eclipse.wst.validation.internal.EventManager.resourceChanged(EventManager.java:248)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:291)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:285)
+	at org.eclipse.core.internal.events.NotificationManager.handleEvent(NotificationManager.java:249)
+	at org.eclipse.core.internal.resources.Workspace.broadcastEvent(Workspace.java:373)
+	at org.eclipse.core.internal.resources.Project.close(Project.java:199)
+	at org.eclipse.ui.actions.CloseResourceAction.invokeOperation(CloseResourceAction.java:129)
+	at org.eclipse.ui.actions.WorkspaceAction.execute(WorkspaceAction.java:164)
+	at org.eclipse.ui.actions.WorkspaceAction$2.runInWorkspace(WorkspaceAction.java:485)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:38)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)

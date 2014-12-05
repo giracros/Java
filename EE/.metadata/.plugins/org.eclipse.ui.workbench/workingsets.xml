@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1417742303452_0" label="CRUD" name="CRUD">
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/SampleSpringMaven" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/SpringMVC-Hibernate" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/TaskManagerApp" type="4"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/SpringHibernateAnnotations" type="4"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1417743519557_1" label="Window Working Set" name="Aggregate for window 1417743519556"/>
+<mruList name="CRUD"/>
+</workingSetManager>

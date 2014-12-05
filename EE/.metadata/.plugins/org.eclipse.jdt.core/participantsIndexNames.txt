@@ -1,0 +1,13 @@
+INDEX VERSION 1.127
+/Users/danielfuentes/GitHub/Java/EE/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3194370769.index
+/SpringHibernateAnnotations/src/main/java
+/Users/danielfuentes/GitHub/Java/EE/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3717161683.index
+/SampleSpringMaven/src/main/java
+/Users/danielfuentes/GitHub/Java/EE/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/623709626.index
+/TaskManagerApp/src
+/Users/danielfuentes/GitHub/Java/EE/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3463834486.index
+/SpringMVC-Hibernate/src
+/Users/danielfuentes/GitHub/Java/EE/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/359087688.index
+/SpringHibernateAnnotations/src/main/java
+/Users/danielfuentes/GitHub/Java/EE/.metadata/.plugins/org.eclipse.jst.jsp.core/jspsearch/3146438585.index
+/SampleSpringMaven/src/main/java
