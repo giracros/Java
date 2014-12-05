@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="CdsEditDlg" widgetVar="CdsEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{bundle.EditCdsTitle}" closeOnEscape="true">
+
+            <h:form id="CdsEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{cdsController.selected != null}">
+
+                        <p:outputLabel value="#{bundle.EditCdsLabel_titel}" for="titel" />
+                        <p:inputText id="titel" value="#{cdsController.selected.titel}" title="#{bundle.EditCdsTitle_titel}" size="200" maxlength="200"/>
+
+                        <p:outputLabel value="#{bundle.EditCdsLabel_interpret}" for="interpret" />
+                        <p:inputText id="interpret" value="#{cdsController.selected.interpret}" title="#{bundle.EditCdsTitle_interpret}" size="200" maxlength="200"/>
+
+                        <p:outputLabel value="#{bundle.EditCdsLabel_jahr}" for="jahr" />
+                        <p:inputText id="jahr" value="#{cdsController.selected.jahr}" title="#{bundle.EditCdsTitle_jahr}"/>
+
+
+                        <h:outputLabel value="#{bundle.EditCdsLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{cdsController.selected.id}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cdsController.save}" value="#{bundle.Save}" update="display,:CdsListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('CdsEditDialog'));">
+                        <p:confirm header="#{bundle.ConfirmationHeader}" message="#{bundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('CdsEditDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

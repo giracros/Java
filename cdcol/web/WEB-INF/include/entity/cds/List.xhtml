@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="CdsListForm">
+
+        <p:panel header="#{bundle.ListCdsTitle}">
+            <p:contextMenu id="CdsDataTableContextMenu" for="datalist">  
+                <p:menuitem value="#{bundle.Create}" onclick="document.getElementById('CdsListForm:createButton').click();" icon="ui-icon-plus"/>
+                <p:menuitem value="#{bundle.View}" onclick="document.getElementById('CdsListForm:viewButton').click();" icon="ui-icon-search"/>
+                <p:menuitem value="#{bundle.Edit}" onclick="document.getElementById('CdsListForm:editButton').click();" icon="ui-icon-pencil"/>
+                <p:menuitem value="#{bundle.Delete}" onclick="document.getElementById('CdsListForm:deleteButton').click();" icon="ui-icon-trash"/>
+            </p:contextMenu>
+            <p:dataTable id="datalist"
+                         value="#{cdsController.items}"
+                         var="item"
+                         rowKey="#{item.id}"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30"
+                         selectionMode="single"
+                         selection="#{cdsController.selected}">
+
+                <p:ajax event="rowSelect"   update=":CdsListForm:createButton :CdsListForm:viewButton :CdsListForm:editButton :CdsListForm:deleteButton :CdsListForm:CdsDataTableContextMenu"/>
+                <p:ajax event="rowUnselect" update=":CdsListForm:createButton :CdsListForm:viewButton :CdsListForm:editButton :CdsListForm:deleteButton :CdsListForm:CdsDataTableContextMenu"/>
+                <p:ajax event="rowDblselect" onsuccess="document.getElementById('CdsListForm:viewButton').click();"/>
+
+                <p:column sortBy="#{item.titel}" filterBy="#{item.titel}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListCdsTitle_titel}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.titel}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.interpret}" filterBy="#{item.interpret}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListCdsTitle_interpret}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.interpret}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.jahr}" filterBy="#{item.jahr}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListCdsTitle_jahr}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.jahr}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{bundle.ListCdsTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+
+
+            </p:dataTable>
+
+            <p:commandButton id="createButton"                             icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{cdsController.prepareCreate}" update=":CdsCreateForm" oncomplete="PF('CdsCreateDialog').show()"/>
+            <p:commandButton id="viewButton"   style="visibility: hidden;" icon="ui-icon-search" value="#{bundle.View}" update=":CdsViewForm" oncomplete="PF('CdsViewDialog').show()" disabled="#{empty cdsController.selected}"/>
+            <p:commandButton id="editButton"   style="visibility: hidden;" icon="ui-icon-pencil" value="#{bundle.Edit}" update=":CdsEditForm" oncomplete="PF('CdsEditDialog').show()" disabled="#{empty cdsController.selected}"/>
+            <p:commandButton id="deleteButton" style="visibility: hidden;" icon="ui-icon-trash"  value="#{bundle.Delete}" actionListener="#{cdsController.delete}" update=":growl,datalist" disabled="#{empty cdsController.selected}">
+                <p:confirm header="#{bundle.ConfirmationHeader}" message="#{bundle.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+            </p:commandButton>
+
+        </p:panel>
+        <ui:include src="/WEB-INF/include/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

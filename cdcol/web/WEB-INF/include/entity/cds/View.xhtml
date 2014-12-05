@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CdsViewDlg" widgetVar="CdsViewDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{bundle.ViewCdsTitle}" closeOnEscape="true">
+
+            <h:form id="CdsViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" columnClasses="column" rendered="#{cdsController.selected != null}">
+
+                        <h:outputText value="#{bundle.ViewCdsLabel_titel}"/>
+                        <h:outputText value="#{cdsController.selected.titel}" title="#{bundle.ViewCdsTitle_titel}"/>
+
+                        <h:outputText value="#{bundle.ViewCdsLabel_interpret}"/>
+                        <h:outputText value="#{cdsController.selected.interpret}" title="#{bundle.ViewCdsTitle_interpret}"/>
+
+                        <h:outputText value="#{bundle.ViewCdsLabel_jahr}"/>
+                        <h:outputText value="#{cdsController.selected.jahr}" title="#{bundle.ViewCdsTitle_jahr}"/>
+
+                        <h:outputText value="#{bundle.ViewCdsLabel_id}"/>
+                        <h:outputText value="#{cdsController.selected.id}" title="#{bundle.ViewCdsTitle_id}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PF('CdsViewDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CdsCreateDlg" widgetVar="CdsCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCdsTitle}" closeOnEscape="true">
+
+            <h:form id="CdsCreateForm">
+
+                <h:panelGroup id="display" rendered="#{cdsController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{bundle.CreateCdsLabel_titel}" for="titel" />
+                        <p:inputText id="titel" value="#{cdsController.selected.titel}" title="#{bundle.CreateCdsTitle_titel}" size="200" maxlength="200"/>
+
+                        <p:outputLabel value="#{bundle.CreateCdsLabel_interpret}" for="interpret" />
+                        <p:inputText id="interpret" value="#{cdsController.selected.interpret}" title="#{bundle.CreateCdsTitle_interpret}" size="200" maxlength="200"/>
+
+                        <p:outputLabel value="#{bundle.CreateCdsLabel_jahr}" for="jahr" />
+                        <p:inputText id="jahr" value="#{cdsController.selected.jahr}" title="#{bundle.CreateCdsTitle_jahr}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{cdsController.saveNew}" value="#{bundle.Save}" update="display,:CdsListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('CdsCreateDialog'));">
+                        <p:confirm header="#{bundle.ConfirmationHeader}" message="#{bundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PF('CdsCreateDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>
