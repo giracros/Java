@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewTUsuariosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewTUsuariosLabel_idUsuario}"/>
+                    <h:outputText value="#{tUsuariosController.selected.idUsuario}" title="#{bundle.ViewTUsuariosTitle_idUsuario}"/>
+                    <h:outputText value="#{bundle.ViewTUsuariosLabel_cedula}"/>
+                    <h:outputText value="#{tUsuariosController.selected.cedula}" title="#{bundle.ViewTUsuariosTitle_cedula}"/>
+                    <h:outputText value="#{bundle.ViewTUsuariosLabel_nombres}"/>
+                    <h:outputText value="#{tUsuariosController.selected.nombres}" title="#{bundle.ViewTUsuariosTitle_nombres}"/>
+                    <h:outputText value="#{bundle.ViewTUsuariosLabel_apellidos}"/>
+                    <h:outputText value="#{tUsuariosController.selected.apellidos}" title="#{bundle.ViewTUsuariosTitle_apellidos}"/>
+                    <h:outputText value="#{bundle.ViewTUsuariosLabel_email}"/>
+                    <h:outputText value="#{tUsuariosController.selected.email}" title="#{bundle.ViewTUsuariosTitle_email}"/>
+                    <h:outputText value="#{bundle.ViewTUsuariosLabel_telefonoFijo}"/>
+                    <h:outputText value="#{tUsuariosController.selected.telefonoFijo}" title="#{bundle.ViewTUsuariosTitle_telefonoFijo}"/>
+                    <h:outputText value="#{bundle.ViewTUsuariosLabel_celular}"/>
+                    <h:outputText value="#{tUsuariosController.selected.celular}" title="#{bundle.ViewTUsuariosTitle_celular}"/>
+                    <h:outputText value="#{bundle.ViewTUsuariosLabel_direccion}"/>
+                    <h:outputText value="#{tUsuariosController.selected.direccion}" title="#{bundle.ViewTUsuariosTitle_direccion}"/>
+                    <h:outputText value="#{bundle.ViewTUsuariosLabel_tipoUsuario}"/>
+                    <h:outputText value="#{tUsuariosController.selected.tipoUsuario}" title="#{bundle.ViewTUsuariosTitle_tipoUsuario}"/>
+                    <h:outputText value="#{bundle.ViewTUsuariosLabel_password}"/>
+                    <h:outputText value="#{tUsuariosController.selected.password}" title="#{bundle.ViewTUsuariosTitle_password}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tUsuariosController.destroyAndView}" value="#{bundle.ViewTUsuariosDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewTUsuariosEditLink}"/>
+                <br />
+                <h:commandLink action="#{tUsuariosController.prepareCreate}" value="#{bundle.ViewTUsuariosCreateLink}" />
+                <br />
+                <h:commandLink action="#{tUsuariosController.prepareList}" value="#{bundle.ViewTUsuariosShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewTUsuariosIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

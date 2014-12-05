@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTUsuariosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTUsuariosLabel_idUsuario}" for="idUsuario" />
+                    <h:inputText id="idUsuario" value="#{tUsuariosController.selected.idUsuario}" title="#{bundle.EditTUsuariosTitle_idUsuario}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_idUsuario}"/>
+                    <h:outputLabel value="#{bundle.EditTUsuariosLabel_cedula}" for="cedula" />
+                    <h:inputText id="cedula" value="#{tUsuariosController.selected.cedula}" title="#{bundle.EditTUsuariosTitle_cedula}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_cedula}"/>
+                    <h:outputLabel value="#{bundle.EditTUsuariosLabel_nombres}" for="nombres" />
+                    <h:inputText id="nombres" value="#{tUsuariosController.selected.nombres}" title="#{bundle.EditTUsuariosTitle_nombres}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_nombres}"/>
+                    <h:outputLabel value="#{bundle.EditTUsuariosLabel_apellidos}" for="apellidos" />
+                    <h:inputText id="apellidos" value="#{tUsuariosController.selected.apellidos}" title="#{bundle.EditTUsuariosTitle_apellidos}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_apellidos}"/>
+                    <h:outputLabel value="#{bundle.EditTUsuariosLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{tUsuariosController.selected.email}" title="#{bundle.EditTUsuariosTitle_email}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_email}"/>
+                    <h:outputLabel value="#{bundle.EditTUsuariosLabel_telefonoFijo}" for="telefonoFijo" />
+                    <h:inputText id="telefonoFijo" value="#{tUsuariosController.selected.telefonoFijo}" title="#{bundle.EditTUsuariosTitle_telefonoFijo}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_telefonoFijo}"/>
+                    <h:outputLabel value="#{bundle.EditTUsuariosLabel_celular}" for="celular" />
+                    <h:inputText id="celular" value="#{tUsuariosController.selected.celular}" title="#{bundle.EditTUsuariosTitle_celular}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_celular}"/>
+                    <h:outputLabel value="#{bundle.EditTUsuariosLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{tUsuariosController.selected.direccion}" title="#{bundle.EditTUsuariosTitle_direccion}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_direccion}"/>
+                    <h:outputLabel value="#{bundle.EditTUsuariosLabel_tipoUsuario}" for="tipoUsuario" />
+                    <h:inputText id="tipoUsuario" value="#{tUsuariosController.selected.tipoUsuario}" title="#{bundle.EditTUsuariosTitle_tipoUsuario}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_tipoUsuario}"/>
+                    <h:outputLabel value="#{bundle.EditTUsuariosLabel_password}" for="password" />
+                    <h:inputText id="password" value="#{tUsuariosController.selected.password}" title="#{bundle.EditTUsuariosTitle_password}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_password}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{tUsuariosController.update}" value="#{bundle.EditTUsuariosSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTUsuariosViewLink}"/>
+                <br />
+                <h:commandLink action="#{tUsuariosController.prepareList}" value="#{bundle.EditTUsuariosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTUsuariosIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

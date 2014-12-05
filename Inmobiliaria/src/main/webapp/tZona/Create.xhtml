@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTZonaTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTZonaLabel_idZona}" for="idZona" />
+                    <h:inputText id="idZona" value="#{tZonaController.selected.idZona}" title="#{bundle.CreateTZonaTitle_idZona}" required="true" requiredMessage="#{bundle.CreateTZonaRequiredMessage_idZona}"/>
+                    <h:outputLabel value="#{bundle.CreateTZonaLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{tZonaController.selected.descripcion}" title="#{bundle.CreateTZonaTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateTZonaRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.CreateTZonaLabel_idCiudad}" for="idCiudad" />
+                    <h:selectOneMenu id="idCiudad" value="#{tZonaController.selected.idCiudad}" title="#{bundle.CreateTZonaTitle_idCiudad}" required="true" requiredMessage="#{bundle.CreateTZonaRequiredMessage_idCiudad}">
+                        <f:selectItems value="#{tCiudadController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tZonaController.create}" value="#{bundle.CreateTZonaSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tZonaController.prepareList}" value="#{bundle.CreateTZonaShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTZonaIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

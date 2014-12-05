@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTUsuariosTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTUsuariosLabel_idUsuario}" for="idUsuario" />
+                    <h:inputText id="idUsuario" value="#{tUsuariosController.selected.idUsuario}" title="#{bundle.CreateTUsuariosTitle_idUsuario}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_idUsuario}"/>
+                    <h:outputLabel value="#{bundle.CreateTUsuariosLabel_cedula}" for="cedula" />
+                    <h:inputText id="cedula" value="#{tUsuariosController.selected.cedula}" title="#{bundle.CreateTUsuariosTitle_cedula}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_cedula}"/>
+                    <h:outputLabel value="#{bundle.CreateTUsuariosLabel_nombres}" for="nombres" />
+                    <h:inputText id="nombres" value="#{tUsuariosController.selected.nombres}" title="#{bundle.CreateTUsuariosTitle_nombres}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_nombres}"/>
+                    <h:outputLabel value="#{bundle.CreateTUsuariosLabel_apellidos}" for="apellidos" />
+                    <h:inputText id="apellidos" value="#{tUsuariosController.selected.apellidos}" title="#{bundle.CreateTUsuariosTitle_apellidos}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_apellidos}"/>
+                    <h:outputLabel value="#{bundle.CreateTUsuariosLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{tUsuariosController.selected.email}" title="#{bundle.CreateTUsuariosTitle_email}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_email}"/>
+                    <h:outputLabel value="#{bundle.CreateTUsuariosLabel_telefonoFijo}" for="telefonoFijo" />
+                    <h:inputText id="telefonoFijo" value="#{tUsuariosController.selected.telefonoFijo}" title="#{bundle.CreateTUsuariosTitle_telefonoFijo}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_telefonoFijo}"/>
+                    <h:outputLabel value="#{bundle.CreateTUsuariosLabel_celular}" for="celular" />
+                    <h:inputText id="celular" value="#{tUsuariosController.selected.celular}" title="#{bundle.CreateTUsuariosTitle_celular}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_celular}"/>
+                    <h:outputLabel value="#{bundle.CreateTUsuariosLabel_direccion}" for="direccion" />
+                    <h:inputText id="direccion" value="#{tUsuariosController.selected.direccion}" title="#{bundle.CreateTUsuariosTitle_direccion}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_direccion}"/>
+                    <h:outputLabel value="#{bundle.CreateTUsuariosLabel_tipoUsuario}" for="tipoUsuario" />
+                    <h:inputText id="tipoUsuario" value="#{tUsuariosController.selected.tipoUsuario}" title="#{bundle.CreateTUsuariosTitle_tipoUsuario}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_tipoUsuario}"/>
+                    <h:outputLabel value="#{bundle.CreateTUsuariosLabel_password}" for="password" />
+                    <h:inputText id="password" value="#{tUsuariosController.selected.password}" title="#{bundle.CreateTUsuariosTitle_password}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_password}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tUsuariosController.create}" value="#{bundle.CreateTUsuariosSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tUsuariosController.prepareList}" value="#{bundle.CreateTUsuariosShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTUsuariosIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

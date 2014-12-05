@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateTBarrioTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateTBarrioLabel_idBarrio}" for="idBarrio" />
+                    <h:inputText id="idBarrio" value="#{tBarrioController.selected.idBarrio}" title="#{bundle.CreateTBarrioTitle_idBarrio}" required="true" requiredMessage="#{bundle.CreateTBarrioRequiredMessage_idBarrio}"/>
+                    <h:outputLabel value="#{bundle.CreateTBarrioLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{tBarrioController.selected.descripcion}" title="#{bundle.CreateTBarrioTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateTBarrioRequiredMessage_descripcion}"/>
+                    <h:outputLabel value="#{bundle.CreateTBarrioLabel_idZona}" for="idZona" />
+                    <h:selectOneMenu id="idZona" value="#{tBarrioController.selected.idZona}" title="#{bundle.CreateTBarrioTitle_idZona}" required="true" requiredMessage="#{bundle.CreateTBarrioRequiredMessage_idZona}">
+                        <f:selectItems value="#{tZonaController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{tBarrioController.create}" value="#{bundle.CreateTBarrioSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{tBarrioController.prepareList}" value="#{bundle.CreateTBarrioShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateTBarrioIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

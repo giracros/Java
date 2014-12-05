@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTDepartamentoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTDepartamentoLabel_idDepartamento}" for="idDepartamento" />
+                    <h:inputText id="idDepartamento" value="#{tDepartamentoController.selected.idDepartamento}" title="#{bundle.EditTDepartamentoTitle_idDepartamento}" required="true" requiredMessage="#{bundle.EditTDepartamentoRequiredMessage_idDepartamento}"/>
+                    <h:outputLabel value="#{bundle.EditTDepartamentoLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{tDepartamentoController.selected.descripcion}" title="#{bundle.EditTDepartamentoTitle_descripcion}" required="true" requiredMessage="#{bundle.EditTDepartamentoRequiredMessage_descripcion}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{tDepartamentoController.update}" value="#{bundle.EditTDepartamentoSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTDepartamentoViewLink}"/>
+                <br />
+                <h:commandLink action="#{tDepartamentoController.prepareList}" value="#{bundle.EditTDepartamentoShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTDepartamentoIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
