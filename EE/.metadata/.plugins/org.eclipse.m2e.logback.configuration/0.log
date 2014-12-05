@@ -379,3 +379,8 @@
 2014-12-04 20:52:13,199 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2014-12-04 20:52:13,201 [Worker-11] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2014-12-04 20:52:13,202 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/danielfuentes/GitHub/Java/EE/SampleSpringMaven/src/test/resources
+2014-12-04 20:54:35,192 [Worker-5] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: mavenDWP:mavenDWP:0.0.1-SNAPSHOT @ /Users/danielfuentes/GitHub/Java/EE/mavenDWP/pom.xml.
+2014-12-04 20:54:35,528 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-04 20:54:35,530 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/danielfuentes/GitHub/Java/EE/mavenDWP/src/main/resources
+2014-12-04 20:54:35,532 [Worker-12] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-12-04 20:54:35,533 [Worker-12] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/danielfuentes/GitHub/Java/EE/mavenDWP/src/test/resources
