@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TDepartamentoCreateDlg" widgetVar="TDepartamentoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTDepartamentoTitle}">
+            <h:form id="TDepartamentoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tDepartamentoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTDepartamentoLabel_idDepartamento}" for="idDepartamento" />
+                        <p:inputText id="idDepartamento" value="#{tDepartamentoController.selected.idDepartamento}" title="#{bundle.CreateTDepartamentoTitle_idDepartamento}" required="true" requiredMessage="#{bundle.CreateTDepartamentoRequiredMessage_idDepartamento}"/>
+                        <p:outputLabel value="#{bundle.CreateTDepartamentoLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{tDepartamentoController.selected.descripcion}" title="#{bundle.CreateTDepartamentoTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateTDepartamentoRequiredMessage_descripcion}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tDepartamentoController.create}" value="#{bundle.Save}" update="display,:TDepartamentoListForm:datalist,:growl" oncomplete="handleSubmit(args,'TDepartamentoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TDepartamentoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

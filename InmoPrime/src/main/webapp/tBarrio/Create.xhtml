@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TBarrioCreateDlg" widgetVar="TBarrioCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTBarrioTitle}">
+            <h:form id="TBarrioCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tBarrioController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTBarrioLabel_idBarrio}" for="idBarrio" />
+                        <p:inputText id="idBarrio" value="#{tBarrioController.selected.idBarrio}" title="#{bundle.CreateTBarrioTitle_idBarrio}" required="true" requiredMessage="#{bundle.CreateTBarrioRequiredMessage_idBarrio}"/>
+                        <p:outputLabel value="#{bundle.CreateTBarrioLabel_descripcion}" for="descripcion" />
+                        <p:inputText id="descripcion" value="#{tBarrioController.selected.descripcion}" title="#{bundle.CreateTBarrioTitle_descripcion}" required="true" requiredMessage="#{bundle.CreateTBarrioRequiredMessage_descripcion}"/>
+                        <p:outputLabel value="#{bundle.CreateTBarrioLabel_idZona}" for="idZona" />
+                        <p:selectOneMenu id="idZona" value="#{tBarrioController.selected.idZona}" required="true" requiredMessage="#{bundle.EditTBarrioRequiredMessage_idZona}">
+                            <f:selectItems value="#{tZonaController.itemsAvailableSelectOne}"
+                                           var="idZonaItem"
+                                           itemValue="#{idZonaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tBarrioController.create}" value="#{bundle.Save}" update="display,:TBarrioListForm:datalist,:growl" oncomplete="handleSubmit(args,'TBarrioCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TBarrioCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TUsuariosEditDlg" widgetVar="TUsuariosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTUsuariosTitle}">
+            <h:form id="TUsuariosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tUsuariosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTUsuariosLabel_idUsuario}" for="idUsuario" />
+                        <p:inputText id="idUsuario" value="#{tUsuariosController.selected.idUsuario}" title="#{bundle.EditTUsuariosTitle_idUsuario}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_idUsuario}"/>
+                        <p:outputLabel value="#{bundle.EditTUsuariosLabel_cedula}" for="cedula" />
+                        <p:inputText id="cedula" value="#{tUsuariosController.selected.cedula}" title="#{bundle.EditTUsuariosTitle_cedula}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_cedula}"/>
+                        <p:outputLabel value="#{bundle.EditTUsuariosLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{tUsuariosController.selected.nombres}" title="#{bundle.EditTUsuariosTitle_nombres}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_nombres}"/>
+                        <p:outputLabel value="#{bundle.EditTUsuariosLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{tUsuariosController.selected.apellidos}" title="#{bundle.EditTUsuariosTitle_apellidos}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_apellidos}"/>
+                        <p:outputLabel value="#{bundle.EditTUsuariosLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{tUsuariosController.selected.email}" title="#{bundle.EditTUsuariosTitle_email}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_email}"/>
+                        <p:outputLabel value="#{bundle.EditTUsuariosLabel_telefonoFijo}" for="telefonoFijo" />
+                        <p:inputText id="telefonoFijo" value="#{tUsuariosController.selected.telefonoFijo}" title="#{bundle.EditTUsuariosTitle_telefonoFijo}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_telefonoFijo}"/>
+                        <p:outputLabel value="#{bundle.EditTUsuariosLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{tUsuariosController.selected.celular}" title="#{bundle.EditTUsuariosTitle_celular}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_celular}"/>
+                        <p:outputLabel value="#{bundle.EditTUsuariosLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{tUsuariosController.selected.direccion}" title="#{bundle.EditTUsuariosTitle_direccion}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_direccion}"/>
+                        <p:outputLabel value="#{bundle.EditTUsuariosLabel_tipoUsuario}" for="tipoUsuario" />
+                        <p:inputText id="tipoUsuario" value="#{tUsuariosController.selected.tipoUsuario}" title="#{bundle.EditTUsuariosTitle_tipoUsuario}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_tipoUsuario}"/>
+                        <p:outputLabel value="#{bundle.EditTUsuariosLabel_password}" for="password" />
+                        <p:inputText id="password" value="#{tUsuariosController.selected.password}" title="#{bundle.EditTUsuariosTitle_password}" required="true" requiredMessage="#{bundle.EditTUsuariosRequiredMessage_password}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tUsuariosController.update}" value="#{bundle.Save}" update="display,:TUsuariosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TUsuariosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TUsuariosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TInmuebleEditDlg" widgetVar="TInmuebleEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTInmuebleTitle}">
+            <h:form id="TInmuebleEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tInmuebleController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_idInmueble}" for="idInmueble" />
+                        <p:inputText id="idInmueble" value="#{tInmuebleController.selected.idInmueble}" title="#{bundle.EditTInmuebleTitle_idInmueble}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_idInmueble}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_codigoInmueble}" for="codigoInmueble" />
+                        <p:inputText id="codigoInmueble" value="#{tInmuebleController.selected.codigoInmueble}" title="#{bundle.EditTInmuebleTitle_codigoInmueble}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_codigoInmueble}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_direccionInmueble}" for="direccionInmueble" />
+                        <p:inputText id="direccionInmueble" value="#{tInmuebleController.selected.direccionInmueble}" title="#{bundle.EditTInmuebleTitle_direccionInmueble}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_direccionInmueble}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_estrato}" for="estrato" />
+                        <p:inputText id="estrato" value="#{tInmuebleController.selected.estrato}" title="#{bundle.EditTInmuebleTitle_estrato}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_estrato}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_areaMt2}" for="areaMt2" />
+                        <p:inputText id="areaMt2" value="#{tInmuebleController.selected.areaMt2}" title="#{bundle.EditTInmuebleTitle_areaMt2}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_areaMt2}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_nivelPiso}" for="nivelPiso" />
+                        <p:inputText id="nivelPiso" value="#{tInmuebleController.selected.nivelPiso}" title="#{bundle.EditTInmuebleTitle_nivelPiso}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_nivelPiso}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_noAlcobas}" for="noAlcobas" />
+                        <p:inputText id="noAlcobas" value="#{tInmuebleController.selected.noAlcobas}" title="#{bundle.EditTInmuebleTitle_noAlcobas}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_noAlcobas}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_noBaños}" for="noBaños" />
+                        <p:inputText id="noBaños" value="#{tInmuebleController.selected.noBaños}" title="#{bundle.EditTInmuebleTitle_noBaños}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_noBaños}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_noPatios}" for="noPatios" />
+                        <p:inputText id="noPatios" value="#{tInmuebleController.selected.noPatios}" title="#{bundle.EditTInmuebleTitle_noPatios}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_noPatios}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_espacios}" for="espacios" />
+                        <p:inputText id="espacios" value="#{tInmuebleController.selected.espacios}" title="#{bundle.EditTInmuebleTitle_espacios}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_espacios}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_tipoCocina}" for="tipoCocina" />
+                        <p:inputText id="tipoCocina" value="#{tInmuebleController.selected.tipoCocina}" title="#{bundle.EditTInmuebleTitle_tipoCocina}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_tipoCocina}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_noGarajes}" for="noGarajes" />
+                        <p:inputText id="noGarajes" value="#{tInmuebleController.selected.noGarajes}" title="#{bundle.EditTInmuebleTitle_noGarajes}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_noGarajes}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_zonasComunes}" for="zonasComunes" />
+                        <p:inputText id="zonasComunes" value="#{tInmuebleController.selected.zonasComunes}" title="#{bundle.EditTInmuebleTitle_zonasComunes}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_zonasComunes}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_valorInmueble}" for="valorInmueble" />
+                        <p:inputText id="valorInmueble" value="#{tInmuebleController.selected.valorInmueble}" title="#{bundle.EditTInmuebleTitle_valorInmueble}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_valorInmueble}"/>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_observaciones}" for="observaciones" />
+                        <p:inputText id="observaciones" value="#{tInmuebleController.selected.observaciones}" title="#{bundle.EditTInmuebleTitle_observaciones}" />
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_idBarrio}" for="idBarrio" />
+                        <p:selectOneMenu id="idBarrio" value="#{tInmuebleController.selected.idBarrio}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_idBarrio}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tBarrioController.itemsAvailableSelectOne}"
+                                           var="idBarrioItem"
+                                           itemValue="#{idBarrioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_idDisponibilidad}" for="idDisponibilidad" />
+                        <p:selectOneMenu id="idDisponibilidad" value="#{tInmuebleController.selected.idDisponibilidad}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_idDisponibilidad}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tDisponibilidadController.itemsAvailableSelectOne}"
+                                           var="idDisponibilidadItem"
+                                           itemValue="#{idDisponibilidadItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_idTipoInmueble}" for="idTipoInmueble" />
+                        <p:selectOneMenu id="idTipoInmueble" value="#{tInmuebleController.selected.idTipoInmueble}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_idTipoInmueble}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tTipoinmuebleController.itemsAvailableSelectOne}"
+                                           var="idTipoInmuebleItem"
+                                           itemValue="#{idTipoInmuebleItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_empleadoIdUsuario}" for="empleadoIdUsuario" />
+                        <p:selectOneMenu id="empleadoIdUsuario" value="#{tInmuebleController.selected.empleadoIdUsuario}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_empleadoIdUsuario}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tUsuariosController.itemsAvailableSelectOne}"
+                                           var="empleadoIdUsuarioItem"
+                                           itemValue="#{empleadoIdUsuarioItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditTInmuebleLabel_clienteIdUsuario}" for="clienteIdUsuario" />
+                        <p:selectOneMenu id="clienteIdUsuario" value="#{tInmuebleController.selected.clienteIdUsuario}" required="true" requiredMessage="#{bundle.EditTInmuebleRequiredMessage_clienteIdUsuario}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{tUsuariosController.itemsAvailableSelectOne}"
+                                           var="clienteIdUsuarioItem"
+                                           itemValue="#{clienteIdUsuarioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tInmuebleController.update}" value="#{bundle.Save}" update="display,:TInmuebleListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TInmuebleEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TInmuebleEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

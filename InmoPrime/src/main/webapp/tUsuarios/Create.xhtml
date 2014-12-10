@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TUsuariosCreateDlg" widgetVar="TUsuariosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTUsuariosTitle}">
+            <h:form id="TUsuariosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tUsuariosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTUsuariosLabel_idUsuario}" for="idUsuario" />
+                        <p:inputText id="idUsuario" value="#{tUsuariosController.selected.idUsuario}" title="#{bundle.CreateTUsuariosTitle_idUsuario}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_idUsuario}"/>
+                        <p:outputLabel value="#{bundle.CreateTUsuariosLabel_cedula}" for="cedula" />
+                        <p:inputText id="cedula" value="#{tUsuariosController.selected.cedula}" title="#{bundle.CreateTUsuariosTitle_cedula}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_cedula}"/>
+                        <p:outputLabel value="#{bundle.CreateTUsuariosLabel_nombres}" for="nombres" />
+                        <p:inputText id="nombres" value="#{tUsuariosController.selected.nombres}" title="#{bundle.CreateTUsuariosTitle_nombres}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_nombres}"/>
+                        <p:outputLabel value="#{bundle.CreateTUsuariosLabel_apellidos}" for="apellidos" />
+                        <p:inputText id="apellidos" value="#{tUsuariosController.selected.apellidos}" title="#{bundle.CreateTUsuariosTitle_apellidos}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_apellidos}"/>
+                        <p:outputLabel value="#{bundle.CreateTUsuariosLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{tUsuariosController.selected.email}" title="#{bundle.CreateTUsuariosTitle_email}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_email}"/>
+                        <p:outputLabel value="#{bundle.CreateTUsuariosLabel_telefonoFijo}" for="telefonoFijo" />
+                        <p:inputText id="telefonoFijo" value="#{tUsuariosController.selected.telefonoFijo}" title="#{bundle.CreateTUsuariosTitle_telefonoFijo}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_telefonoFijo}"/>
+                        <p:outputLabel value="#{bundle.CreateTUsuariosLabel_celular}" for="celular" />
+                        <p:inputText id="celular" value="#{tUsuariosController.selected.celular}" title="#{bundle.CreateTUsuariosTitle_celular}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_celular}"/>
+                        <p:outputLabel value="#{bundle.CreateTUsuariosLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{tUsuariosController.selected.direccion}" title="#{bundle.CreateTUsuariosTitle_direccion}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_direccion}"/>
+                        <p:outputLabel value="#{bundle.CreateTUsuariosLabel_tipoUsuario}" for="tipoUsuario" />
+                        <p:inputText id="tipoUsuario" value="#{tUsuariosController.selected.tipoUsuario}" title="#{bundle.CreateTUsuariosTitle_tipoUsuario}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_tipoUsuario}"/>
+                        <p:outputLabel value="#{bundle.CreateTUsuariosLabel_password}" for="password" />
+                        <p:inputText id="password" value="#{tUsuariosController.selected.password}" title="#{bundle.CreateTUsuariosTitle_password}" required="true" requiredMessage="#{bundle.CreateTUsuariosRequiredMessage_password}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tUsuariosController.create}" value="#{bundle.Save}" update="display,:TUsuariosListForm:datalist,:growl" oncomplete="handleSubmit(args,'TUsuariosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TUsuariosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

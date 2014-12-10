@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TUsuariosViewDlg" widgetVar="TUsuariosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTUsuariosTitle}">
+            <h:form id="TUsuariosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tUsuariosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTUsuariosLabel_idUsuario}"/>
+                        <h:outputText value="#{tUsuariosController.selected.idUsuario}" title="#{bundle.ViewTUsuariosTitle_idUsuario}"/>
+                        <h:outputText value="#{bundle.ViewTUsuariosLabel_cedula}"/>
+                        <h:outputText value="#{tUsuariosController.selected.cedula}" title="#{bundle.ViewTUsuariosTitle_cedula}"/>
+                        <h:outputText value="#{bundle.ViewTUsuariosLabel_nombres}"/>
+                        <h:outputText value="#{tUsuariosController.selected.nombres}" title="#{bundle.ViewTUsuariosTitle_nombres}"/>
+                        <h:outputText value="#{bundle.ViewTUsuariosLabel_apellidos}"/>
+                        <h:outputText value="#{tUsuariosController.selected.apellidos}" title="#{bundle.ViewTUsuariosTitle_apellidos}"/>
+                        <h:outputText value="#{bundle.ViewTUsuariosLabel_email}"/>
+                        <h:outputText value="#{tUsuariosController.selected.email}" title="#{bundle.ViewTUsuariosTitle_email}"/>
+                        <h:outputText value="#{bundle.ViewTUsuariosLabel_telefonoFijo}"/>
+                        <h:outputText value="#{tUsuariosController.selected.telefonoFijo}" title="#{bundle.ViewTUsuariosTitle_telefonoFijo}"/>
+                        <h:outputText value="#{bundle.ViewTUsuariosLabel_celular}"/>
+                        <h:outputText value="#{tUsuariosController.selected.celular}" title="#{bundle.ViewTUsuariosTitle_celular}"/>
+                        <h:outputText value="#{bundle.ViewTUsuariosLabel_direccion}"/>
+                        <h:outputText value="#{tUsuariosController.selected.direccion}" title="#{bundle.ViewTUsuariosTitle_direccion}"/>
+                        <h:outputText value="#{bundle.ViewTUsuariosLabel_tipoUsuario}"/>
+                        <h:outputText value="#{tUsuariosController.selected.tipoUsuario}" title="#{bundle.ViewTUsuariosTitle_tipoUsuario}"/>
+                        <h:outputText value="#{bundle.ViewTUsuariosLabel_password}"/>
+                        <h:outputText value="#{tUsuariosController.selected.password}" title="#{bundle.ViewTUsuariosTitle_password}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TUsuariosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

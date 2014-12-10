@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditCdsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditCdsLabel_titel}" for="titel" />
+                    <h:inputText id="titel" value="#{cdsController.selected.titel}" title="#{bundle.EditCdsTitle_titel}" />
+                    <h:outputLabel value="#{bundle.EditCdsLabel_interpret}" for="interpret" />
+                    <h:inputText id="interpret" value="#{cdsController.selected.interpret}" title="#{bundle.EditCdsTitle_interpret}" />
+                    <h:outputLabel value="#{bundle.EditCdsLabel_jahr}" for="jahr" />
+                    <h:inputText id="jahr" value="#{cdsController.selected.jahr}" title="#{bundle.EditCdsTitle_jahr}" />
+                    <h:outputLabel value="#{bundle.EditCdsLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{cdsController.selected.id}" title="#{bundle.EditCdsTitle_id}" required="true" requiredMessage="#{bundle.EditCdsRequiredMessage_id}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{cdsController.update}" value="#{bundle.EditCdsSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditCdsViewLink}"/>
+                <br />
+                <h:commandLink action="#{cdsController.prepareList}" value="#{bundle.EditCdsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditCdsIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

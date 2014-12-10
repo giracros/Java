@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TInmuebleViewDlg" widgetVar="TInmuebleViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTInmuebleTitle}">
+            <h:form id="TInmuebleViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tInmuebleController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_idInmueble}"/>
+                        <h:outputText value="#{tInmuebleController.selected.idInmueble}" title="#{bundle.ViewTInmuebleTitle_idInmueble}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_codigoInmueble}"/>
+                        <h:outputText value="#{tInmuebleController.selected.codigoInmueble}" title="#{bundle.ViewTInmuebleTitle_codigoInmueble}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_direccionInmueble}"/>
+                        <h:outputText value="#{tInmuebleController.selected.direccionInmueble}" title="#{bundle.ViewTInmuebleTitle_direccionInmueble}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_estrato}"/>
+                        <h:outputText value="#{tInmuebleController.selected.estrato}" title="#{bundle.ViewTInmuebleTitle_estrato}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_areaMt2}"/>
+                        <h:outputText value="#{tInmuebleController.selected.areaMt2}" title="#{bundle.ViewTInmuebleTitle_areaMt2}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_nivelPiso}"/>
+                        <h:outputText value="#{tInmuebleController.selected.nivelPiso}" title="#{bundle.ViewTInmuebleTitle_nivelPiso}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_noAlcobas}"/>
+                        <h:outputText value="#{tInmuebleController.selected.noAlcobas}" title="#{bundle.ViewTInmuebleTitle_noAlcobas}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_noBaños}"/>
+                        <h:outputText value="#{tInmuebleController.selected.noBaños}" title="#{bundle.ViewTInmuebleTitle_noBaños}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_noPatios}"/>
+                        <h:outputText value="#{tInmuebleController.selected.noPatios}" title="#{bundle.ViewTInmuebleTitle_noPatios}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_espacios}"/>
+                        <h:outputText value="#{tInmuebleController.selected.espacios}" title="#{bundle.ViewTInmuebleTitle_espacios}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_tipoCocina}"/>
+                        <h:outputText value="#{tInmuebleController.selected.tipoCocina}" title="#{bundle.ViewTInmuebleTitle_tipoCocina}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_noGarajes}"/>
+                        <h:outputText value="#{tInmuebleController.selected.noGarajes}" title="#{bundle.ViewTInmuebleTitle_noGarajes}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_zonasComunes}"/>
+                        <h:outputText value="#{tInmuebleController.selected.zonasComunes}" title="#{bundle.ViewTInmuebleTitle_zonasComunes}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_valorInmueble}"/>
+                        <h:outputText value="#{tInmuebleController.selected.valorInmueble}" title="#{bundle.ViewTInmuebleTitle_valorInmueble}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_observaciones}"/>
+                        <h:outputText value="#{tInmuebleController.selected.observaciones}" title="#{bundle.ViewTInmuebleTitle_observaciones}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_idBarrio}"/>
+                        <h:outputText value="#{tInmuebleController.selected.idBarrio}" title="#{bundle.ViewTInmuebleTitle_idBarrio}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_idDisponibilidad}"/>
+                        <h:outputText value="#{tInmuebleController.selected.idDisponibilidad}" title="#{bundle.ViewTInmuebleTitle_idDisponibilidad}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_idTipoInmueble}"/>
+                        <h:outputText value="#{tInmuebleController.selected.idTipoInmueble}" title="#{bundle.ViewTInmuebleTitle_idTipoInmueble}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_empleadoIdUsuario}"/>
+                        <h:outputText value="#{tInmuebleController.selected.empleadoIdUsuario}" title="#{bundle.ViewTInmuebleTitle_empleadoIdUsuario}"/>
+                        <h:outputText value="#{bundle.ViewTInmuebleLabel_clienteIdUsuario}"/>
+                        <h:outputText value="#{tInmuebleController.selected.clienteIdUsuario}" title="#{bundle.ViewTInmuebleTitle_clienteIdUsuario}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TInmuebleViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
