@@ -16,28 +16,14 @@
        <p>Perfil: #{loginBean.perfil}</p>
        
        <h:link outcome="/tDepartamento/List" value="Administracion de Departamentos"/>
+            <br />
        <h:link outcome="/tCiudad/List" value="Administracion de Ciudades"/>
+            <br />
        <h:link outcome="/tBarrio/List" value="Administracion de Barrios"/>
+            <br />
        <h:link outcome="/tZona/List" value="Administracion de Zonas"/>
-       
+            <br />
        </c:if>
-        
-        
-        
-        <br />
-        <br />
-        
-        <br />
-        <br />
-        
-        <br />
-        <br />
-       
-        <br />
-           <br />
-       
-        <br />
-           <br />
         <h:link outcome="/tDisponibilidad/List" rendered="#{loginBean.perfil == 1}" value="Administracion de Disponibilidad"/>
         <br />
            <br />
@@ -53,7 +39,6 @@
         <h:link outcome="/tUsuarios/List" value="Administrador de Usuarios"/>
         <br />
            <br />
-        
     </h:body>
 </html>
 
