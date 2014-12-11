@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
         <title>Inmo CamiloyDaniel</title>
         <h:outputStylesheet name="css/jsfcrud.css"/>
@@ -8,20 +9,33 @@
     <h:body>
        Bienvenido a nuestro portal aquì podra encontrar la informacion que necesita sobre el inmueble que usted esta buscando...
        
+        <br/>
+        <p>Perfil: #{loginBean.perfil}</p>
+       <c:if test="#{loginBean.perfil == 1}">
+           
        <p>Perfil: #{loginBean.perfil}</p>
        
+       <h:link outcome="/tDepartamento/List" value="Administracion de Departamentos"/>
+       <h:link outcome="/tCiudad/List" value="Administracion de Ciudades"/>
+       <h:link outcome="/tBarrio/List" value="Administracion de Barrios"/>
+       <h:link outcome="/tZona/List" value="Administracion de Zonas"/>
+       
+       </c:if>
+        
+        
+        
         <br />
         <br />
-        <h:link outcome="/tDepartamento/List" value="Administracion de Departamentos"/>
+        
         <br />
         <br />
-        <h:link outcome="/tCiudad/List" value="Administracion de Ciudades"/>
+        
         <br />
         <br />
-        <h:link outcome="/tBarrio/List" value="Administracion de Barrios"/>
+       
         <br />
            <br />
-        <h:link outcome="/tZona/List" value="Administracion de Zonas"/>
+       
         <br />
            <br />
         <h:link outcome="/tDisponibilidad/List" value="Administracion de Disponibilidad"/>
