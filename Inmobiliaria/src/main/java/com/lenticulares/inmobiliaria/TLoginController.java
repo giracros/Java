@@ -20,6 +20,8 @@ public class TLoginController implements Serializable {
 private String perfil;
 
     public String getPerfil() {
+        this.perfil = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("perfil");
+        System.out.println("perfil "+this.perfil);
         return perfil;
     }
 
@@ -32,8 +34,7 @@ private String perfil;
      */
     public TLoginController() {
         
-        this.perfil = (String) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("perfil");
-        System.out.println("perfil "+this.perfil);
+        
     }
     
 }
