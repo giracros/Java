@@ -38,7 +38,7 @@
        
         <br />
            <br />
-        <h:link outcome="/tDisponibilidad/List" value="Administracion de Disponibilidad"/>
+        <h:link outcome="/tDisponibilidad/List" rendered="#{loginBean.perfil == 1}" value="Administracion de Disponibilidad"/>
         <br />
            <br />
         <h:link outcome="/tInmueble/List" value="Administracion de Inmuebles"/>
