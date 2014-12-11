@@ -5,7 +5,7 @@ root {
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: #3a4f54;
-    background-color: #dfecf1;
+    background-color: #00B5CA;
     font-size: small;
 }
 
@@ -43,8 +43,8 @@ form.jsfcrud_list_form th, td th {
 
 td {
     vertical-align: top;
-    padding-bottom: 8px;
-    font-size: small;
+    padding-bottom: 9px;
+    font-size: medium;
 }
 
 form.jsfcrud_list_form td, td td {
@@ -52,10 +52,10 @@ form.jsfcrud_list_form td, td td {
     border-bottom-style: solid;
     border-left-style: solid;
     border-right-style: solid;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-left-width: 1px;
-    border-right-width: 1px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-right-width: 2px;
     border-top-color: #b2d5d6;
     border-bottom-color: #b2d5d6;
     border-left-color: #b2d5d6;
