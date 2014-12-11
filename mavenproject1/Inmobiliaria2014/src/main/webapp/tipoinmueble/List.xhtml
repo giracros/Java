@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListTipoinmuebleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListTipoinmuebleEmpty}" rendered="#{tipoinmuebleController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{tipoinmuebleController.items.rowCount > 0}">
+                    <h:outputText value="#{tipoinmuebleController.pagination.pageFirstItem + 1}..#{tipoinmuebleController.pagination.pageLastItem + 1}/#{tipoinmuebleController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{tipoinmuebleController.previous}" value="#{bundle.Previous} #{tipoinmuebleController.pagination.pageSize}" rendered="#{tipoinmuebleController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{tipoinmuebleController.next}" value="#{bundle.Next} #{tipoinmuebleController.pagination.pageSize}" rendered="#{tipoinmuebleController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{tipoinmuebleController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoinmuebleTitle_idTipoInmueble}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTipoInmueble}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListTipoinmuebleTitle_descripcion}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.descripcion}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{tipoinmuebleController.prepareView}" value="#{bundle.ListTipoinmuebleViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tipoinmuebleController.prepareEdit}" value="#{bundle.ListTipoinmuebleEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{tipoinmuebleController.destroy}" value="#{bundle.ListTipoinmuebleDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{tipoinmuebleController.prepareCreate}" value="#{bundle.ListTipoinmuebleCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListTipoinmuebleIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

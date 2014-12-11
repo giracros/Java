@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateInmuebleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_idInmueble}" for="idInmueble" />
+                    <h:inputText id="idInmueble" value="#{inmuebleController.selected.idInmueble}" title="#{bundle.CreateInmuebleTitle_idInmueble}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_idInmueble}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_codigoInmueble}" for="codigoInmueble" />
+                    <h:inputText id="codigoInmueble" value="#{inmuebleController.selected.codigoInmueble}" title="#{bundle.CreateInmuebleTitle_codigoInmueble}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_codigoInmueble}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_direccionInmueble}" for="direccionInmueble" />
+                    <h:inputText id="direccionInmueble" value="#{inmuebleController.selected.direccionInmueble}" title="#{bundle.CreateInmuebleTitle_direccionInmueble}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_direccionInmueble}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_estrato}" for="estrato" />
+                    <h:inputText id="estrato" value="#{inmuebleController.selected.estrato}" title="#{bundle.CreateInmuebleTitle_estrato}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_estrato}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_areaMt2}" for="areaMt2" />
+                    <h:inputText id="areaMt2" value="#{inmuebleController.selected.areaMt2}" title="#{bundle.CreateInmuebleTitle_areaMt2}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_areaMt2}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_nivelPiso}" for="nivelPiso" />
+                    <h:inputText id="nivelPiso" value="#{inmuebleController.selected.nivelPiso}" title="#{bundle.CreateInmuebleTitle_nivelPiso}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_nivelPiso}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_noAlcobas}" for="noAlcobas" />
+                    <h:inputText id="noAlcobas" value="#{inmuebleController.selected.noAlcobas}" title="#{bundle.CreateInmuebleTitle_noAlcobas}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_noAlcobas}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_noBaños}" for="noBaños" />
+                    <h:inputText id="noBaños" value="#{inmuebleController.selected.noBaños}" title="#{bundle.CreateInmuebleTitle_noBaños}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_noBaños}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_noPatios}" for="noPatios" />
+                    <h:inputText id="noPatios" value="#{inmuebleController.selected.noPatios}" title="#{bundle.CreateInmuebleTitle_noPatios}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_noPatios}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_espacios}" for="espacios" />
+                    <h:inputText id="espacios" value="#{inmuebleController.selected.espacios}" title="#{bundle.CreateInmuebleTitle_espacios}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_espacios}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_tipoCocina}" for="tipoCocina" />
+                    <h:inputText id="tipoCocina" value="#{inmuebleController.selected.tipoCocina}" title="#{bundle.CreateInmuebleTitle_tipoCocina}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_tipoCocina}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_noGarajes}" for="noGarajes" />
+                    <h:inputText id="noGarajes" value="#{inmuebleController.selected.noGarajes}" title="#{bundle.CreateInmuebleTitle_noGarajes}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_noGarajes}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_zonasComunes}" for="zonasComunes" />
+                    <h:inputText id="zonasComunes" value="#{inmuebleController.selected.zonasComunes}" title="#{bundle.CreateInmuebleTitle_zonasComunes}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_zonasComunes}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_valorInmueble}" for="valorInmueble" />
+                    <h:inputText id="valorInmueble" value="#{inmuebleController.selected.valorInmueble}" title="#{bundle.CreateInmuebleTitle_valorInmueble}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_valorInmueble}"/>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_observaciones}" for="observaciones" />
+                    <h:inputText id="observaciones" value="#{inmuebleController.selected.observaciones}" title="#{bundle.CreateInmuebleTitle_observaciones}" />
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_idBarrio}" for="idBarrio" />
+                    <h:selectOneMenu id="idBarrio" value="#{inmuebleController.selected.idBarrio}" title="#{bundle.CreateInmuebleTitle_idBarrio}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_idBarrio}">
+                        <f:selectItems value="#{barrioController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_idDisponibilidad}" for="idDisponibilidad" />
+                    <h:selectOneMenu id="idDisponibilidad" value="#{inmuebleController.selected.idDisponibilidad}" title="#{bundle.CreateInmuebleTitle_idDisponibilidad}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_idDisponibilidad}">
+                        <f:selectItems value="#{disponibilidadController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_idTipoInmueble}" for="idTipoInmueble" />
+                    <h:selectOneMenu id="idTipoInmueble" value="#{inmuebleController.selected.idTipoInmueble}" title="#{bundle.CreateInmuebleTitle_idTipoInmueble}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_idTipoInmueble}">
+                        <f:selectItems value="#{tipoinmuebleController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_empleadoIdUsuario}" for="empleadoIdUsuario" />
+                    <h:selectOneMenu id="empleadoIdUsuario" value="#{inmuebleController.selected.empleadoIdUsuario}" title="#{bundle.CreateInmuebleTitle_empleadoIdUsuario}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_empleadoIdUsuario}">
+                        <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateInmuebleLabel_clienteIdUsuario}" for="clienteIdUsuario" />
+                    <h:selectOneMenu id="clienteIdUsuario" value="#{inmuebleController.selected.clienteIdUsuario}" title="#{bundle.CreateInmuebleTitle_clienteIdUsuario}" required="true" requiredMessage="#{bundle.CreateInmuebleRequiredMessage_clienteIdUsuario}">
+                        <f:selectItems value="#{usuariosController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{inmuebleController.create}" value="#{bundle.CreateInmuebleSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{inmuebleController.prepareList}" value="#{bundle.CreateInmuebleShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateInmuebleIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

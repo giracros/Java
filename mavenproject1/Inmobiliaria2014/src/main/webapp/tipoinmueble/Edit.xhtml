@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditTipoinmuebleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditTipoinmuebleLabel_idTipoInmueble}" for="idTipoInmueble" />
+                    <h:inputText id="idTipoInmueble" value="#{tipoinmuebleController.selected.idTipoInmueble}" title="#{bundle.EditTipoinmuebleTitle_idTipoInmueble}" required="true" requiredMessage="#{bundle.EditTipoinmuebleRequiredMessage_idTipoInmueble}"/>
+                    <h:outputLabel value="#{bundle.EditTipoinmuebleLabel_descripcion}" for="descripcion" />
+                    <h:inputText id="descripcion" value="#{tipoinmuebleController.selected.descripcion}" title="#{bundle.EditTipoinmuebleTitle_descripcion}" required="true" requiredMessage="#{bundle.EditTipoinmuebleRequiredMessage_descripcion}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{tipoinmuebleController.update}" value="#{bundle.EditTipoinmuebleSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditTipoinmuebleViewLink}"/>
+                <br />
+                <h:commandLink action="#{tipoinmuebleController.prepareList}" value="#{bundle.EditTipoinmuebleShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditTipoinmuebleIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

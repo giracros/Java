@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListInmuebleTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListInmuebleEmpty}" rendered="#{inmuebleController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{inmuebleController.items.rowCount > 0}">
+                    <h:outputText value="#{inmuebleController.pagination.pageFirstItem + 1}..#{inmuebleController.pagination.pageLastItem + 1}/#{inmuebleController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{inmuebleController.previous}" value="#{bundle.Previous} #{inmuebleController.pagination.pageSize}" rendered="#{inmuebleController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{inmuebleController.next}" value="#{bundle.Next} #{inmuebleController.pagination.pageSize}" rendered="#{inmuebleController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{inmuebleController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_idInmueble}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idInmueble}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_codigoInmueble}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.codigoInmueble}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_direccionInmueble}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.direccionInmueble}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_estrato}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.estrato}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_areaMt2}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.areaMt2}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_nivelPiso}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.nivelPiso}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_noAlcobas}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.noAlcobas}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_noBaños}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.noBaños}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_noPatios}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.noPatios}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_espacios}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.espacios}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_tipoCocina}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.tipoCocina}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_noGarajes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.noGarajes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_zonasComunes}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.zonasComunes}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_valorInmueble}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.valorInmueble}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_observaciones}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.observaciones}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_idBarrio}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idBarrio}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_idDisponibilidad}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idDisponibilidad}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_idTipoInmueble}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.idTipoInmueble}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_empleadoIdUsuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.empleadoIdUsuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListInmuebleTitle_clienteIdUsuario}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.clienteIdUsuario}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{inmuebleController.prepareView}" value="#{bundle.ListInmuebleViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{inmuebleController.prepareEdit}" value="#{bundle.ListInmuebleEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{inmuebleController.destroy}" value="#{bundle.ListInmuebleDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{inmuebleController.prepareCreate}" value="#{bundle.ListInmuebleCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListInmuebleIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
